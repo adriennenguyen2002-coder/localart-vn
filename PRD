@@ -1,0 +1,39 @@
+# Product Requirement Document: Local Art Market (LAM)
+
+## 1. Executive Summary
+**Vision**: To become the leading digital destination in Vietnam for discovering and supporting local artists.
+**Mission**: Connecting Vietnamese local artists with young people seeking unique, personalized artistic gifts.
+
+---
+
+## 2. Target Audience & Personas
+- **The Gift Seeker**: Gen Z/Millennials looking for unique, meaningful gifts.
+- **The Local Artist**: Freelance creators needing a professional platform to sell and handle commissions.
+
+---
+
+## 3. Key Functional Requirements
+- **Visual Discovery**: Pinterest-style feed with smart filters.
+- **Art Consignment Map**: Interactive map of physical stores for offline shopping.
+- **Artist Portfolio**: Showcase with bio and commission status.
+- **Commission System**: Standardized request flow for personalized art.
+- **E-commerce**: Integrated payments (Momo, ZaloPay) and shipping tracking.
+
+---
+
+## 4. Design & UX
+- **Aesthetic**: Minimalist, Indie, Creative.
+- **Interactions**: Smooth transitions, high-quality image focal points.
+
+---
+
+## 5. Technical Requirements
+- **Performance**: Lazy loading for art galleries.
+- **Localization**: Vietnamese and English support.
+
+---
+
+## 6. Roadmap
+- **Phase 1**: Core discovery and profiles.
+- **Phase 2**: Payments and Commission Dashboard.
+- **Phase 3**: Community and AR features.
