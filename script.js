@@ -15,9 +15,13 @@ const INITIAL_ART_PIECES = [
     { id: 3, title: "Túi Tote Thêu Tay 'Phố Cổ'", artist: "Linh Lan", image: "media__1776268433146.png", likes: 256, comments: 45, avatar: "LL", category: "Thủ công mỹ nghệ" },
     { id: 4, title: "Lịch Để Bàn 'Rồng Việt'", artist: "Quốc Anh", image: "media__1776422159779.png", likes: 156, comments: 24, avatar: "QA", category: "Đồ gia dụng vẽ tay" },
     { id: 5, title: "Khăn Lụa 'Hà Nội Một Sớm'", artist: "Phương Nam", image: "media__1776422432515.png", likes: 312, comments: 56, avatar: "PN", category: "Thủ công mỹ nghệ" },
-    { id: 6, title: "Cyberpunk Hanoi - Limited Print", artist: "Đức Huy", image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800", likes: 420, comments: 89, avatar: "DH", category: "Tranh Digital" },
-    { id: 7, title: "Sổ tay Giấy Dó 'Họa Sắc'", artist: "Zó Project", image: "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?auto=format&fit=crop&q=80&w=800", likes: 215, comments: 34, avatar: "ZP", category: "Thủ công mỹ nghệ" },
-    { id: 8, title: "Bình hoa Sơn Mài 'Đông Hồ'", artist: "Minh Anh", image: "https://images.unsplash.com/photo-1612115539052-e932aa199468?auto=format&fit=crop&q=80&w=800", likes: 178, comments: 21, avatar: "MA", category: "Thủ công mỹ nghệ" }
+    { id: 6, title: "Art Tarot 'Cố Đô'", artist: "Minh Hiếu", image: "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?auto=format&fit=crop&q=80&w=800", likes: 95, comments: 10, avatar: "MH", category: "Móc khóa & Phụ kiện" },
+    { id: 7, title: "Poster 'Saigon Neon'", artist: "Đức Huy", image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800", likes: 420, comments: 89, avatar: "DH", category: "Tranh Digital" },
+    { id: 8, title: "Sổ tay Giấy Dó 'Họa Sắc'", artist: "Zó Project", image: "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?auto=format&fit=crop&q=80&w=800", likes: 215, comments: 34, avatar: "ZP", category: "Thủ công mỹ nghệ" },
+    { id: 9, title: "Bình hoa Sơn Mài 'Đông Hồ'", artist: "Minh Anh", image: "https://images.unsplash.com/photo-1612115539052-e932aa199468?auto=format&fit=crop&q=80&w=800", likes: 178, comments: 21, avatar: "MA", category: "Thủ công mỹ nghệ" },
+    { id: 10, title: "Tranh Canvas 'Làng Sen'", artist: "Thảo Vy", image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=800", likes: 132, comments: 15, avatar: "TV", category: "Thanh Digital" },
+    { id: 11, title: "Bộ Chén Trà Gốm Bát Tràng", artist: "Hải Đăng", image: "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&q=80&w=800", likes: 245, comments: 28, avatar: "HD", category: "Đồ gia dụng vẽ tay" },
+    { id: 12, title: "Móc khóa Đất Sét Nặn", artist: "Linh Lan", image: "https://images.unsplash.com/photo-1626014303757-636611689443?auto=format&fit=crop&q=80&w=800", likes: 412, comments: 92, avatar: "LL", category: "Móc khóa & Phụ kiện" }
 ];
 
 const INITIAL_IMPACT_PROJECTS = [
