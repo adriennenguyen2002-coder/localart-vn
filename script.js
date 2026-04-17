@@ -10,13 +10,13 @@ const STORAGE_KEYS = {
 
 // Initial Data: Marketplace Products
 const INITIAL_ART_PIECES = [
-    { id: 1, title: "Linh vật Nghê Việt - Digital Art", artist: "Hải Nam", image: "https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&q=80&w=800", likes: 124, comments: 18, avatar: "HN", category: "Tranh Digital" },
+    { id: 1, title: "Linh vật Nghê Việt - Digital Art", artist: "Hải Nam", image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800", likes: 124, comments: 18, avatar: "HN", category: "Tranh Digital" },
     { id: 2, title: "Ly Gốm 'Mùa Sen' - Vẽ tay", artist: "Thảo Vy", image: "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&q=80&w=800", likes: 89, comments: 12, avatar: "TV", category: "Đồ gia dụng vẽ tay" },
     { id: 3, title: "Móc khóa Cung Đình - Enamel Pin", artist: "Linh Lan", image: "https://images.unsplash.com/photo-1626014303757-636611689443?auto=format&fit=crop&q=80&w=800", likes: 256, comments: 45, avatar: "LL", category: "Móc khóa & Phụ kiện" },
     { id: 4, title: "Túi Tote Thêu Tay 'Phố Cổ'", artist: "Quốc Anh", image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800", likes: 156, comments: 24, avatar: "QA", category: "Thủ công mỹ nghệ" },
     { id: 5, title: "Bộ Postcard 'Sài Gòn 1990s'", artist: "Phương Nam", image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=800", likes: 312, comments: 56, avatar: "PN", category: "Móc khóa & Phụ kiện" },
     { id: 6, title: "Cyberpunk Hanoi - Limited Print", artist: "Đức Huy", image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800", likes: 420, comments: 89, avatar: "DH", category: "Tranh Digital" },
-    { id: 7, title: "Sổ tay Giấy Dó 'Họa Sắc'", artist: "Zó Project", image: "https://images.unsplash.com/photo-1589149053231-4ed501d1d991?auto=format&fit=crop&q=80&w=800", likes: 215, comments: 34, avatar: "ZP", category: "Thủ công mỹ nghệ" },
+    { id: 7, title: "Sổ tay Giấy Dó 'Họa Sắc'", artist: "Zó Project", image: "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?auto=format&fit=crop&q=80&w=800", likes: 215, comments: 34, avatar: "ZP", category: "Thủ công mỹ nghệ" },
     { id: 8, title: "Bình hoa Sơn Mài 'Đông Hồ'", artist: "Minh Anh", image: "https://images.unsplash.com/photo-1612115539052-e932aa199468?auto=format&fit=crop&q=80&w=800", likes: 178, comments: 21, avatar: "MA", category: "Thủ công mỹ nghệ" }
 ];
 
@@ -52,8 +52,8 @@ const events = [
 
 const projectBriefs = [
     { title: "Sáng tạo tranh tường (Mural) Hồ Tây", reward: "15.000.000 VNĐ", status: "Open", deadline: "12 ngày", image: "https://images.unsplash.com/photo-1525909002-1b05e0c869d8?auto=format&fit=crop&q=80&w=800" },
-    { title: "Thiết kế bộ Postcard 'Ký ức Phố'", reward: "5.000.000 VNĐ", status: "Open", deadline: "10 ngày", image: "https://images.unsplash.com/photo-1579762715118-a6f1d4b93475?auto=format&fit=crop&q=80&w=800" },
-    { title: "Minh họa bìa sách 'Hồn Việt'", reward: "8.000.000 VNĐ", status: "Open", deadline: "15 ngày", image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=800" },
+    { title: "Thiết kế bộ Postcard 'Ký ức Phố'", reward: "5.000.000 VNĐ", status: "Open", deadline: "10 ngày", image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=800" },
+    { title: "Minh họa bìa sách 'Hồn Việt'", reward: "8.000.000 VNĐ", status: "Open", deadline: "15 ngày", image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=800" },
     { title: "Workshop Dệt vải Tự nhiên", reward: "20.000.000 VNĐ", status: "Open", deadline: "20 ngày", image: "https://images.unsplash.com/photo-1506806732259-39c2d4468673?auto=format&fit=crop&q=80&w=800" }
 ];
 
