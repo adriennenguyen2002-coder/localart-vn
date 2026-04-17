@@ -10,11 +10,11 @@ const STORAGE_KEYS = {
 
 // Initial Data: Marketplace Products
 const INITIAL_ART_PIECES = [
-    { id: 1, title: "Linh vật Nghê Việt - Digital Art", artist: "Hải Nam", image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800", likes: 124, comments: 18, avatar: "HN", category: "Tranh Digital" },
-    { id: 2, title: "Ly Gốm 'Mùa Sen' - Vẽ tay", artist: "Thảo Vy", image: "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&q=80&w=800", likes: 89, comments: 12, avatar: "TV", category: "Đồ gia dụng vẽ tay" },
-    { id: 3, title: "Móc khóa Cung Đình - Enamel Pin", artist: "Linh Lan", image: "https://images.unsplash.com/photo-1626014303757-636611689443?auto=format&fit=crop&q=80&w=800", likes: 256, comments: 45, avatar: "LL", category: "Móc khóa & Phụ kiện" },
-    { id: 4, title: "Túi Tote Thêu Tay 'Phố Cổ'", artist: "Quốc Anh", image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800", likes: 156, comments: 24, avatar: "QA", category: "Thủ công mỹ nghệ" },
-    { id: 5, title: "Bộ Postcard 'Sài Gòn 1990s'", artist: "Phương Nam", image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=800", likes: 312, comments: 56, avatar: "PN", category: "Móc khóa & Phụ kiện" },
+    { id: 1, title: "Bộ Bao Lì Xì 'Họa Sắc Việt'", artist: "Hải Nam", image: "media__1776268102257.png", likes: 124, comments: 18, avatar: "HN", category: "Móc khóa & Phụ kiện" },
+    { id: 2, title: "Linh vật Nghê Việt - Digital Art", artist: "Thảo Vy", image: "media__1776268241063.png", likes: 89, comments: 12, avatar: "TV", category: "Tranh Digital" },
+    { id: 3, title: "Túi Tote Thêu Tay 'Phố Cổ'", artist: "Linh Lan", image: "media__1776268433146.png", likes: 256, comments: 45, avatar: "LL", category: "Thủ công mỹ nghệ" },
+    { id: 4, title: "Lịch Để Bàn 'Rồng Việt'", artist: "Quốc Anh", image: "media__1776422159779.png", likes: 156, comments: 24, avatar: "QA", category: "Đồ gia dụng vẽ tay" },
+    { id: 5, title: "Khăn Lụa 'Hà Nội Một Sớm'", artist: "Phương Nam", image: "media__1776422432515.png", likes: 312, comments: 56, avatar: "PN", category: "Thủ công mỹ nghệ" },
     { id: 6, title: "Cyberpunk Hanoi - Limited Print", artist: "Đức Huy", image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800", likes: 420, comments: 89, avatar: "DH", category: "Tranh Digital" },
     { id: 7, title: "Sổ tay Giấy Dó 'Họa Sắc'", artist: "Zó Project", image: "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?auto=format&fit=crop&q=80&w=800", likes: 215, comments: 34, avatar: "ZP", category: "Thủ công mỹ nghệ" },
     { id: 8, title: "Bình hoa Sơn Mài 'Đông Hồ'", artist: "Minh Anh", image: "https://images.unsplash.com/photo-1612115539052-e932aa199468?auto=format&fit=crop&q=80&w=800", likes: 178, comments: 21, avatar: "MA", category: "Thủ công mỹ nghệ" }
@@ -23,7 +23,9 @@ const INITIAL_ART_PIECES = [
 const INITIAL_IMPACT_PROJECTS = [
     { id: 1, title: "Art for Gaza PS", description: "Bán merchandise & prints gây quỹ hỗ trợ nhân đạo cho Palestine.", artists: 24, raised: "45.2M đ", category: "Đang gây quỹ", color: "#b20a2c", icon: "heart", joined: false },
     { id: 2, title: "Xanh Lại Rừng 🌿", description: "Dự án nghệ thuật cộng đồng — vẽ tranh tường & bán prints gây quỹ trồng cây.", artists: 18, raised: "28.7M đ", category: "Môi trường", color: "#27ae60", icon: "leaf", joined: false },
-    { id: 3, title: "Sắc Màu Khuyết Tật ♿", description: "Workshop nghệ thuật miễn phí cho trẻ em khuyết tật.", artists: 12, raised: "15.1M đ", category: "Tình nguyện", color: "#2980b9", icon: "users", joined: false }
+    { id: 3, title: "Sắc Màu Khuyết Tật ♿", description: "Workshop nghệ thuật miễn phí cho trẻ em khuyết tật.", artists: 12, raised: "15.1M đ", category: "Tình nguyện", color: "#2980b9", icon: "users", joined: false },
+    { id: 4, title: "Bảo tồn Làng Lụa", description: "Số hóa quy trình làm lụa Vạn Phúc và quảng bá sản phẩm truyền thống.", artists: 6, raised: "12.5M đ", category: "Văn hóa", color: "#f06c4e", icon: "palette", joined: false },
+    { id: 5, title: "Nghệ thuật cho Trẻ em Vùng cao", description: "Xây dựng phòng mỹ thuật cho trẻ em tại các bản làng xa xôi.", artists: 15, raised: "32.0M đ", category: "Giáo dục", color: "#8e44ad", icon: "graduation-cap", joined: false }
 ];
 
 const artistStories = [
@@ -33,14 +35,14 @@ const artistStories = [
 ];
 
 const consignmentSpots = [
-    { name: "The Craft House (Saigon)", address: "Dong Khoi Street, District 1", city: "TP. Hồ Chí Minh" },
-    { name: "Collective Memory (Hanoi)", address: "Nha Chung Street, Old Quarter", city: "Hà Nội" },
-    { name: "Zó Project Studio", address: "Yen Hoa, Tay Ho", city: "Hà Nội" },
-    { name: "Vụn Art Spaces", address: "Vạn Phúc Silk Village", city: "Hà Nội" },
-    { name: "Authentique Home", address: "Le Thanh Ton, District 1", city: "TP. Hồ Chí Minh" },
-    { name: "Mekong Quilts Boutique", address: "Mac Thi Buoi, District 1", city: "TP. Hồ Chí Minh" },
-    { name: "Manzi Art Space", address: "Phan Huy Ich, Ba Dinh", city: "Hà Nội" },
-    { name: "Bảo tàng Mỹ thuật Shop", address: "97A Phó Đức Chính", city: "TP. Hồ Chí Minh" }
+    { name: "Collective Memory (Hanoi)", address: "Nha Chung Street, Old Quarter", city: "Hà Nội", coord: { t: '12%', l: '45%' } },
+    { name: "Hai Phong Museum Shop", address: "66 Dien Bien Phu", city: "Hải Phòng", coord: { t: '16%', l: '54%' } },
+    { name: "Zó Project Studio", address: "Yen Hoa, Tay Ho", city: "Hà Nội", coord: { t: '10%', l: '48%' } },
+    { name: "Manzi Art Space", address: "Phan Huy Ich, Ba Dinh", city: "Hà Nội", coord: { t: '14%', l: '50%' } },
+    { name: "Hue Art Connection", address: "To Huu, Hue City", city: "Huế", coord: { t: '42%', l: '58%' } },
+    { name: "The Craft House (Saigon)", address: "Dong Khoi Street, District 1", city: "TP. Hồ Chí Minh", coord: { t: '82%', l: '52%' } },
+    { name: "Dalat Art Workshop", address: "Tran Phu, Da Lat", city: "Đà Lạt", coord: { t: '76%', l: '56%' } },
+    { name: "Mekong Quilts Boutique", address: "Can Tho City Center", city: "Cần Thơ", coord: { t: '90%', l: '42%' } }
 ];
 
 const events = [
@@ -119,6 +121,20 @@ function setupNavigation() {
             switchView(targetView);
         });
     });
+
+    const footerSettings = document.getElementById('footer-settings-trigger');
+    if (footerSettings) {
+        footerSettings.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (isLoggedIn) {
+                switchView('dashboard');
+                // Simulate clicking settings tab in dashboard
+                document.querySelector('[data-tab="settings"]').click();
+            } else {
+                openAuthModal('login');
+            }
+        });
+    }
 }
 
 function switchView(viewId) {
@@ -130,20 +146,21 @@ function switchView(viewId) {
 
     setTimeout(() => {
         navItems.forEach(i => i.classList.remove('active'));
-        const activeNav = document.querySelector(`.nav-item[data-view="${viewId}"]`);
-        if(activeNav) activeNav.classList.add('active');
+        const activeNav = document.querySelectorAll(`.nav-item[data-view="${viewId}"]`);
+        activeNav.forEach(n => n.classList.add('active'));
 
         views.forEach(v => {
             v.classList.remove('active');
-            v.style.height = '0';
+            v.style.display = 'none';
             if (v.id === `view-${viewId}`) {
                 v.classList.add('active');
-                v.style.height = 'auto';
+                v.style.display = 'block';
                 setTimeout(() => v.style.opacity = '1', 50);
             }
         });
         
         if (viewId === 'dashboard') renderDashboard();
+        if (viewId === 'consignment') renderVietnamMap();
         
         window.scrollTo({ top: 0, behavior: 'smooth' });
         if (window.lucide) window.lucide.createIcons();
@@ -322,7 +339,6 @@ function renderAllViews() {
     renderDiscovery();
     renderEvents();
     renderConsignment();
-    renderCollaborate();
 }
 
 function renderDiscovery() {
@@ -428,12 +444,32 @@ function toggleJoin(id) {
 function renderConsignment() {
     const container = document.getElementById('consignment-container');
     if (!container) return;
-    container.innerHTML = '';
+    container.innerHTML = '<h3>Danh sách cửa hàng</h3>';
     consignmentSpots.forEach((spot, idx) => {
         const card = document.createElement('div');
         card.className = `store-card ${idx === 0 ? 'active' : ''}`;
-        card.innerHTML = `<h3>${spot.name}</h3><p>${spot.address}</p><span style="color: #fffbd5; font-size: 0.85rem;">${spot.city}</span>`;
+        card.style.cssText = "padding: 1.5rem; border-radius: 12px; background: #f9f9f9; margin-bottom: 1rem; border: 1px solid rgba(0,0,0,0.05);";
+        card.innerHTML = `<h4>${spot.name}</h4><p style="font-size: 0.9rem; color: #666; margin: 0.5rem 0;">${spot.address}</p><span style="color: var(--accent-coral); font-size: 0.85rem; font-weight:700;">${spot.city}</span>`;
         container.appendChild(card);
+    });
+    renderVietnamMap();
+}
+
+function renderVietnamMap() {
+    const mapWrapper = document.getElementById('vietnam-map');
+    if (!mapWrapper) return;
+    
+    // Clear old markers if any
+    const oldMarkers = mapWrapper.querySelectorAll('.map-marker');
+    oldMarkers.forEach(m => m.remove());
+
+    consignmentSpots.forEach(spot => {
+        const marker = document.createElement('div');
+        marker.className = 'map-marker';
+        marker.style.top = spot.coord.t;
+        marker.style.left = spot.coord.l;
+        marker.title = spot.name;
+        mapWrapper.appendChild(marker);
     });
 }
 

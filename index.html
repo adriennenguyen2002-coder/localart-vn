@@ -10,68 +10,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="dark-mode">
+<body>
     <div class="app-container">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <div class="logo-gradient">localart.vn</div>
+        <!-- New Top Header -->
+        <header class="header">
+            <div class="header-top">
+                <div class="logo-section">
+                    <div class="logo-gradient">localart.vn</div>
+                    <div class="logo-tagline">made by locals, for the beauty of gifting and love</div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="top-bar-minimal">
+                        <div class="search-container">
+                            <i data-lucide="search"></i>
+                            <input type="text" placeholder="Tìm kiếm nghệ sĩ, cảm hứng, sự kiện">
+                        </div>
+                        
+                        <div class="top-actions" id="auth-actions">
+                            <button class="btn-text" id="login-trigger">Đăng nhập</button>
+                        </div>
+
+                        <div class="nav-item profile-link" id="nav-avatar" data-view="dashboard" style="cursor:pointer; width: 40px; height: 40px; border-radius: 50%; background: #f0f0f0; display:flex; align-items:center; justify-content:center; font-weight: 700;">?</div>
+                    </div>
+                </div>
             </div>
-            <nav class="sidebar-nav">
-                <a href="#" class="nav-item active" data-view="discover">
-                    <i data-lucide="compass"></i>
-                    <span>Khám phá</span>
-                </a>
-                <a href="#" class="nav-item" data-view="events">
-                    <i data-lucide="calendar"></i>
-                    <span>Cộng đồng & Sự kiện</span>
-                </a>
-                <a href="#" class="nav-item" data-view="consignment">
-                    <i data-lucide="map-pin"></i>
-                    <span>Điểm ký gửi</span>
-                </a>
-                <a href="#" class="nav-item" data-view="collaborate">
-                    <i data-lucide="users"></i>
-                    <span>Không gian cộng tác</span>
-                </a>
-                <div class="nav-divider"></div>
-                <a href="#" class="nav-item profile-link" data-view="dashboard">
-                    <div class="mini-avatar" id="nav-avatar">?</div>
-                    <span>Cá nhân</span>
-                </a>
+
+            <nav class="main-nav">
+                <a href="#" class="nav-item active" data-view="discover">Khám phá</a>
+                <a href="#" class="nav-item" data-view="consignment">Điểm ký gửi</a>
+                <a href="#" class="nav-item" data-view="stories">Câu chuyện nghệ sĩ</a>
+                <a href="#" class="nav-item" data-view="events">Cộng đồng và Sự kiện</a>
             </nav>
-            <div class="sidebar-footer">
-                <button class="settings-btn">
-                    <i data-lucide="settings"></i>
-                </button>
-            </div>
-        </aside>
+        </header>
 
         <!-- Main Content Area -->
         <main class="main-content">
-            <!-- Universal Top Bar -->
-            <header class="top-bar">
-                <div class="search-container">
-                    <i data-lucide="search"></i>
-                    <input type="text" placeholder="Tìm kiếm nghệ sĩ, cảm hứng, sự kiện">
-                </div>
-                <div class="top-actions" id="auth-actions">
-                    <button class="btn-text" id="login-trigger">Đăng nhập</button>
-                    <!-- Tham gia ngay removed as requested -->
-                </div>
-            </header>
 
-            <!-- Dynamic Views Container -->
             <div id="view-container">
                 
-                <!-- 1. Discovery View (Home) -->
+                <!-- 1. Discovery View (Marketplace) -->
                 <section id="view-discover" class="view active">
                     <div class="hero-intro" id="hero-section">
                         <h1>localart.vn</h1>
                         <p>Nền tảng thương mại nghệ thuật hàng đầu kết nối nghệ sĩ nội địa và những tâm hồn yêu sáng tạo.</p>
                     </div>
 
-                    <!-- Marketplace Section (Priority #1) -->
+                    <!-- Marketplace Section -->
                     <div class="content-section marketplace-section">
                         <div class="section-header">
                             <h2>Marketplace</h2>
@@ -85,78 +70,45 @@
                         </div>
                         <div id="masonry-grid" class="masonry"></div>
                     </div>
-
-                    <!-- Component: Artist Stories -->
-                    <div class="content-section">
-                        <div class="section-badge"><i data-lucide="book-open"></i> Câu chuyện nghệ sĩ</div>
-                        <div class="section-center-header">
-                            <h2>Đằng sau mỗi <span>sản phẩm</span> là một câu chuyện</h2>
-                            <p>Khám phá hành trình sáng tạo và ý nghĩa ẩn giấu qua lời kể của chính các nghệ sĩ.</p>
-                        </div>
-                        <div class="stories-grid" id="stories-container"></div>
-                        <div class="section-footer">
-                            <a href="#" class="btn-link">Xem tất cả bài viết <i data-lucide="arrow-right"></i></a>
-                        </div>
-                    </div>
                 </section>
 
-                <!-- 2. Events & Community View -->
+                <!-- 2. Artist Stories View -->
+                <section id="view-stories" class="view">
+                    <div class="section-center-header">
+                        <div class="section-badge"><i data-lucide="book-open"></i> Câu chuyện nghệ sĩ</div>
+                        <h2>Đằng sau mỗi <span>sản phẩm</span> là một câu chuyện</h2>
+                        <p>Khám phá hành trình sáng tạo và ý nghĩa ẩn giấu qua lời kể của chính các nghệ sĩ.</p>
+                    </div>
+                    <div class="stories-grid" id="stories-container"></div>
+                </section>
+
+                <!-- 3. Events & Community View -->
                 <section id="view-events" class="view">
                     <div class="view-header">
                         <div class="badge-mini"><i data-lucide="heart"></i> Nghệ thuật vì Cộng đồng</div>
                         <h1>Kết nối. Sáng tạo. <span>Tạo tác động.</span></h1>
                         <p>Một không gian để các nghệ sĩ cùng nhau thực hiện các dự án phi lợi nhuận từ gây quỹ nhân đạo, bảo vệ môi trường, đến bảo tồn văn hoá.</p>
-                        <button class="btn-gradient" style="margin-top: 2rem;">Đề xuất dự án mới <i data-lucide="arrow-right"></i></button>
                     </div>
 
-                    <!-- Nghệ thuật vì cộng đồng Grid -->
+                    <!-- Impact Projects Grid -->
                     <div class="impact-grid" id="impact-container">
                         <!-- Projects injected by script.js -->
                     </div>
-
-                    <!-- Events near you section -->
-                    <div class="content-section" style="margin-top: 6rem;">
-                        <div class="section-header">
-                            <h2>Sự kiện gần bạn</h2>
-                            <p>Dành riêng cho tâm hồn nghệ thuật quanh đây</p>
-                        </div>
-                        <div class="events-grid" id="events-container">
-                            <!-- Events injected by script.js -->
-                        </div>
-                    </div>
                 </section>
 
-                <!-- 3. Consignment Spots View -->
+                <!-- 4. Consignment Spots View -->
                 <section id="view-consignment" class="view">
                     <div class="view-header">
                         <h1>Điểm ký gửi</h1>
                         <p>Tìm kiếm các cửa hàng vật lý nơi bạn có thể trải nghiệm trực tiếp sản phẩm.</p>
                     </div>
-                    <div class="consignment-layout">
-                        <div class="consignment-list" id="consignment-container">
+                    <div class="map-container">
+                        <div class="vn-map-svg" id="vietnam-map">
+                            <div style="padding: 2rem; text-align: center; color: var(--text-gray); font-size: 0.8rem; font-weight: 600;">Bản đồ Bắc - Nam</div>
+                        </div>
+                        <div class="consignment-list" id="consignment-container" style="flex: 1;">
                             <!-- Stores injected by script.js -->
                         </div>
-                        <div class="map-placeholder">
-                            <div class="map-overlay">
-                                <i data-lucide="map"></i>
-                                <span>Bản đồ đang tải...</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 4. Collaborative Space View -->
-                <section id="view-collaborate" class="view">
-                    <div class="view-header">
-                        <h1>Không gian cộng tác</h1>
-                        <p>Nơi người dùng và nghệ sĩ cùng nhau tạo nên những giá trị mới thông qua các dự án mở.</p>
-                    </div>
-                    <div class="briefs-dashboard">
-                        <div class="dashboard-header">
-                            <h3>Bảng tin Dự án Mở (Open Project Briefs)</h3>
-                            <button class="btn-outline">+ Đăng yêu cầu mới</button>
-                        </div>
-                        <div class="briefs-grid" id="briefs-container"></div>
                     </div>
                 </section>
 
@@ -221,6 +173,47 @@
 
             </div>
         </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo-gradient">localart.vn</div>
+                    <p style="font-size: 0.9rem; color: var(--text-gray); margin-top: 1rem;">Nền tảng kết nối nghệ thuật nội địa hàng đầu Việt Nam.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Khám phá</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="switchView('discover')">Sản phẩm mới</a></li>
+                        <li><a href="#" onclick="switchView('stories')">Câu chuyện</a></li>
+                        <li><a href="#" onclick="switchView('events')">Cộng đồng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Hỗ trợ</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Trung tâm trợ giúp</a></li>
+                        <li><a href="#">Bảo mật & Điều khoản</a></li>
+                        <li><a href="#" id="footer-settings-trigger"><i data-lucide="settings" style="width: 14px; vertical-align: middle;"></i> Cài đặt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Kết nối</h4>
+                    <div class="social-links" style="display: flex; gap: 1rem;">
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                        <a href="#"><i data-lucide="mail"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 localart.vn. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="#">Chính sách bảo mật</a>
+                    <a href="#">Điều khoản sử dụng</a>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <!-- UX Feedback Toast -->
