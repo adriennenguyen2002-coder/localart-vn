@@ -3,44 +3,27 @@
 const STORAGE_KEYS = {
     ART_PIECES: 'localart_pieces',
     IMPACT_PROJECTS: 'localart_impact',
-    USER_LIKES: 'localart_user_likes'
+    USER_LIKES: 'localart_user_likes',
+    AUTH_STATE: 'localart_auth',
+    USER_DATA: 'localart_user_profile'
 };
 
-// Initial Data
+// Initial Data: Marketplace Products
 const INITIAL_ART_PIECES = [
-    { id: 1, title: "Nắng Sài Gòn", artist: "Hải Nam", image: "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=800", likes: 124, comments: 18, avatar: "HN", category: "Hội họa" },
-    { id: 2, title: "Gốm Mộc", artist: "Thảo Vy", image: "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&q=80&w=800", likes: 89, comments: 12, avatar: "TV", category: "Thủ công" },
-    { id: 3, title: "Trừu tượng Việt", artist: "Linh Lan", image: "https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&q=80&w=800", likes: 256, comments: 45, avatar: "LL", category: "Hội họa" },
-    { id: 4, title: "Nhà cổ Hội An", artist: "Quốc Anh", image: "https://images.unsplash.com/photo-1523554888454-84137e72c3ce?auto=format&fit=crop&q=80&w=800", likes: 156, comments: 24, avatar: "QA", category: "Hội họa" },
-    { id: 5, title: "Mùa lúa chín", artist: "Phương Nam", image: "https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?auto=format&fit=crop&q=80&w=800", likes: 312, comments: 56, avatar: "PN", category: "Hội họa" },
-    { id: 6, title: "Cyberpunk Hanoi", artist: "Đức Huy", image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800", likes: 420, comments: 89, avatar: "DH", category: "Kỹ thuật số" }
+    { id: 1, title: "Linh vật Nghê Việt - Digital Art", artist: "Hải Nam", image: "https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&q=80&w=800", likes: 124, comments: 18, avatar: "HN", category: "Tranh Digital" },
+    { id: 2, title: "Ly Gốm 'Mùa Sen' - Vẽ tay", artist: "Thảo Vy", image: "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&q=80&w=800", likes: 89, comments: 12, avatar: "TV", category: "Đồ gia dụng vẽ tay" },
+    { id: 3, title: "Móc khóa Cung Đình - Enamel Pin", artist: "Linh Lan", image: "https://images.unsplash.com/photo-1626014303757-636611689443?auto=format&fit=crop&q=80&w=800", likes: 256, comments: 45, avatar: "LL", category: "Móc khóa & Phụ kiện" },
+    { id: 4, title: "Túi Tote Thêu Tay 'Phố Cổ'", artist: "Quốc Anh", image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800", likes: 156, comments: 24, avatar: "QA", category: "Thủ công mỹ nghệ" },
+    { id: 5, title: "Bộ Postcard 'Sài Gòn 1990s'", artist: "Phương Nam", image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=800", likes: 312, comments: 56, avatar: "PN", category: "Móc khóa & Phụ kiện" },
+    { id: 6, title: "Cyberpunk Hanoi - Limited Print", artist: "Đức Huy", image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800", likes: 420, comments: 89, avatar: "DH", category: "Tranh Digital" },
+    { id: 7, title: "Sổ tay Giấy Dó 'Họa Sắc'", artist: "Zó Project", image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800", likes: 215, comments: 34, avatar: "ZP", category: "Thủ công mỹ nghệ" },
+    { id: 8, title: "Bình hoa Sơn Mài 'Đông Hồ'", artist: "Minh Anh", image: "https://images.unsplash.com/photo-1612115539052-e932aa199468?auto=format&fit=crop&q=80&w=800", likes: 178, comments: 21, avatar: "MA", category: "Thủ công mỹ nghệ" }
 ];
 
 const INITIAL_IMPACT_PROJECTS = [
     { id: 1, title: "Art for Gaza PS", description: "Bán merchandise & prints gây quỹ hỗ trợ nhân đạo cho Palestine.", artists: 24, raised: "45.2M đ", category: "Đang gây quỹ", color: "#b20a2c", icon: "heart", joined: false },
     { id: 2, title: "Xanh Lại Rừng 🌿", description: "Dự án nghệ thuật cộng đồng — vẽ tranh tường & bán prints gây quỹ trồng cây.", artists: 18, raised: "28.7M đ", category: "Môi trường", color: "#27ae60", icon: "leaf", joined: false },
-    { id: 3, title: "Sắc Màu Khuyết Tật ♿", description: "Workshop nghệ thuật miễn phí cho trẻ em khuyết tật.", artists: 12, raised: "15.1M đ", category: "Tình nguyện", color: "#2980b9", icon: "users", joined: false },
-    { id: 4, title: "Di Sản Việt 🏛️", description: "Số hoá và tái hiện nghệ thuật truyền thống Việt Nam qua digital art.", artists: 31, raised: "62.0M đ", category: "Văn hoá", color: "#e67e22", icon: "landmark", joined: false }
-];
-
-// App State
-let artPieces = JSON.parse(localStorage.getItem(STORAGE_KEYS.ART_PIECES)) || INITIAL_ART_PIECES;
-let impactProjects = JSON.parse(localStorage.getItem(STORAGE_KEYS.IMPACT_PROJECTS)) || INITIAL_IMPACT_PROJECTS;
-let userLikes = JSON.parse(localStorage.getItem(STORAGE_KEYS.USER_LIKES)) || [];
-let currentCategory = "Tất cả";
-let searchQuery = "";
-
-function saveData() {
-    localStorage.setItem(STORAGE_KEYS.ART_PIECES, JSON.stringify(artPieces));
-    localStorage.setItem(STORAGE_KEYS.IMPACT_PROJECTS, JSON.stringify(impactProjects));
-    localStorage.setItem(STORAGE_KEYS.USER_LIKES, JSON.stringify(userLikes));
-}
-
-// Fixed Data for other sections
-const artistHighlights = [
-    { name: "Sơn Tùng M-TP Art", bio: "Hành trình kết hợp âm nhạc và mỹ thuật đương đại.", followers: "12k", image: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&q=80&w=600" },
-    { name: "Xèo Chu", bio: "Nghệ sĩ trẻ với phong cách ấn tượng đầy màu sắc.", followers: "45k", image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=600" },
-    { name: "Tô Bửu Yên", bio: "Tái hiện di sản thông qua nét vẽ hiện đại.", followers: "8k", image: "https://images.unsplash.com/photo-1580136579312-94651dfd596d?auto=format&fit=crop&q=80&w=600" }
+    { id: 3, title: "Sắc Màu Khuyết Tật ♿", description: "Workshop nghệ thuật miễn phí cho trẻ em khuyết tật.", artists: 12, raised: "15.1M đ", category: "Tình nguyện", color: "#2980b9", icon: "users", joined: false }
 ];
 
 const artistStories = [
@@ -50,14 +33,14 @@ const artistStories = [
 ];
 
 const consignmentSpots = [
-    { name: "Ohquao Concept Store", address: "58 Đặng Dung, Tân Định, Quận 1", city: "TP. Hồ Chí Minh" },
-    { name: "Loco Art Market Space", address: "24 Lý Quốc Sư, Hoàn Kiếm", city: "Hà Nội" },
-    { name: "Vibe Art Hub", address: "145 Nguyễn Chí Thanh", city: "Đà Nẵng" }
-];
-
-const projectBriefs = [
-    { title: "Thiết kế bộ Postcard 'Ký ức Phố'", reward: "5.000.000 VNĐ", status: "Open", deadline: "10 ngày" },
-    { title: "Minh họa bìa sách 'Hồn Việt'", reward: "8.000.000 VNĐ", status: "Open", deadline: "15 ngày" }
+    { name: "The Craft House (Saigon)", address: "Dong Khoi Street, District 1", city: "TP. Hồ Chí Minh" },
+    { name: "Collective Memory (Hanoi)", address: "Nha Chung Street, Old Quarter", city: "Hà Nội" },
+    { name: "Zó Project Studio", address: "Yen Hoa, Tay Ho", city: "Hà Nội" },
+    { name: "Vụn Art Spaces", address: "Vạn Phúc Silk Village", city: "Hà Nội" },
+    { name: "Authentique Home", address: "Le Thanh Ton, District 1", city: "TP. Hồ Chí Minh" },
+    { name: "Mekong Quilts Boutique", address: "Mac Thi Buoi, District 1", city: "TP. Hồ Chí Minh" },
+    { name: "Manzi Art Space", address: "Phan Huy Ich, Ba Dinh", city: "Hà Nội" },
+    { name: "Bảo tàng Mỹ thuật Shop", address: "97A Phó Đức Chính", city: "TP. Hồ Chí Minh" }
 ];
 
 const events = [
@@ -66,18 +49,44 @@ const events = [
     { id: 3, title: "Triển lãm 'Nét Việt'", date: "02 Tháng 5, 2026", location: "Hanoi Creative City", tag: "Exhibition", image: "https://images.unsplash.com/photo-1491243950741-9b35542bb9d7?auto=format&fit=crop&q=80&w=600" }
 ];
 
-// --- Core Logic ---
+const projectBriefs = [
+    { title: "Thiết kế bộ Postcard 'Ký ức Phố'", reward: "5.000.000 VNĐ", status: "Open", deadline: "10 ngày" },
+    { title: "Minh họa bìa sách 'Hồn Việt'", reward: "8.000.000 VNĐ", status: "Open", deadline: "15 ngày" }
+];
+
+// App State
+let artPieces = JSON.parse(localStorage.getItem(STORAGE_KEYS.ART_PIECES)) || INITIAL_ART_PIECES;
+let impactProjects = JSON.parse(localStorage.getItem(STORAGE_KEYS.IMPACT_PROJECTS)) || INITIAL_IMPACT_PROJECTS;
+let userLikes = JSON.parse(localStorage.getItem(STORAGE_KEYS.USER_LIKES)) || [];
+let isLoggedIn = JSON.parse(localStorage.getItem(STORAGE_KEYS.AUTH_STATE)) || false;
+let currentUser = JSON.parse(localStorage.getItem(STORAGE_KEYS.USER_DATA)) || null;
+
+let currentCategory = "Tất cả";
+let searchQuery = "";
+
+// --- Core Initialization ---
 
 function initApp() {
     setupNavigation();
+    setupAuth();
     renderAllViews();
-    setupAuthButtons();
     setupSearchAndFilters();
+    updateAuthUI();
     
     if (window.lucide) {
         window.lucide.createIcons();
     }
 }
+
+function saveData() {
+    localStorage.setItem(STORAGE_KEYS.ART_PIECES, JSON.stringify(artPieces));
+    localStorage.setItem(STORAGE_KEYS.IMPACT_PROJECTS, JSON.stringify(impactProjects));
+    localStorage.setItem(STORAGE_KEYS.USER_LIKES, JSON.stringify(userLikes));
+    localStorage.setItem(STORAGE_KEYS.AUTH_STATE, JSON.stringify(isLoggedIn));
+    localStorage.setItem(STORAGE_KEYS.USER_DATA, JSON.stringify(currentUser));
+}
+
+// --- Navigation & Routing ---
 
 function setupNavigation() {
     const navItems = document.querySelectorAll('.nav-item[data-view]');
@@ -87,90 +96,156 @@ function setupNavigation() {
         item.addEventListener('click', (e) => {
             e.preventDefault();
             const targetView = item.getAttribute('data-view');
-            const activeView = document.querySelector('.view.active');
-            if(activeView) activeView.style.opacity = '0';
+            
+            // If dashboard, check auth
+            if (targetView === 'dashboard' && !isLoggedIn) {
+                openAuthModal('login');
+                return;
+            }
 
-            setTimeout(() => {
-                navItems.forEach(i => i.classList.remove('active'));
-                item.classList.add('active');
-
-                views.forEach(v => {
-                    v.classList.remove('active');
-                    v.style.height = '0';
-                    if (v.id === `view-${targetView}`) {
-                        v.classList.add('active');
-                        v.style.height = 'auto';
-                        setTimeout(() => v.style.opacity = '1', 50);
-                    }
-                });
-                
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                if (window.lucide) window.lucide.createIcons();
-            }, 300);
+            switchView(targetView);
         });
     });
 }
 
-function setupAuthButtons() {
-    const actionBtns = [
-        { selector: '.btn-text', msg: 'Chức năng Đăng nhập sắp ra mắt!' },
-        { selector: '.btn-gradient', msg: 'Chào mừng bạn đến với localart.vn!' },
-        { selector: '.view-all', msg: 'Đang chuyển hướng đến danh sách đầy đủ...' }
-    ];
+function switchView(viewId) {
+    const navItems = document.querySelectorAll('.nav-item[data-view]');
+    const views = document.querySelectorAll('.view');
+    const activeView = document.querySelector('.view.active');
+    
+    if(activeView) activeView.style.opacity = '0';
 
-    actionBtns.forEach(btn => {
-        document.querySelectorAll(btn.selector).forEach(el => {
-            el.addEventListener('click', (e) => {
-                e.preventDefault();
-                showNotification(btn.msg, 'info');
-            });
+    setTimeout(() => {
+        navItems.forEach(i => i.classList.remove('active'));
+        const activeNav = document.querySelector(`.nav-item[data-view="${viewId}"]`);
+        if(activeNav) activeNav.classList.add('active');
+
+        views.forEach(v => {
+            v.classList.remove('active');
+            v.style.height = '0';
+            if (v.id === `view-${viewId}`) {
+                v.classList.add('active');
+                v.style.height = 'auto';
+                setTimeout(() => v.style.opacity = '1', 50);
+            }
         });
+        
+        if (viewId === 'dashboard') renderDashboard();
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (window.lucide) window.lucide.createIcons();
+    }, 300);
+}
+
+// --- Auth Simulation ---
+
+function setupAuth() {
+    const modal = document.getElementById('auth-modal');
+    const closeBtn = document.querySelector('.modal-close');
+    const loginTrigger = document.getElementById('login-trigger');
+    
+    loginTrigger.addEventListener('click', () => openAuthModal('login'));
+    closeBtn.addEventListener('click', closeAuthModal);
+    
+    // Switch between forms
+    document.getElementById('show-login').addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleAuthForm('login');
+    });
+    document.getElementById('show-register').addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleAuthForm('register');
     });
 
-    document.addEventListener('click', (e) => {
-        // Toggle Join Impact Project
-        if (e.target.closest('.btn-join')) {
-            const btn = e.target.closest('.btn-join');
-            const card = btn.closest('.impact-card');
-            const id = parseInt(card.dataset.id);
-            const project = impactProjects.find(p => p.id === id);
-            
-            if (project) {
-                project.joined = !project.joined;
-                showNotification(project.joined ? 'Bạn đã tham gia dự án!' : 'Đã rời khỏi dự án', 'success');
-                saveData();
-                renderEvents();
-            }
+    // Registration Submission
+    document.getElementById('reg-submit').addEventListener('click', () => {
+        const name = document.getElementById('reg-name').value;
+        const email = document.getElementById('reg-email').value;
+        if (!name || !email) {
+            showNotification('Vui lòng điền đầy đủ thông tin!', 'info');
+            return;
         }
+        
+        currentUser = { name, email, avatar: name.charAt(0).toUpperCase() };
+        isLoggedIn = true;
+        saveData();
+        updateAuthUI();
+        closeAuthModal();
+        showNotification(`Chào mừng ${name} đến với localart.vn!`, 'success');
+        switchView('dashboard');
+    });
 
-        // Toggle Heart
-        if (e.target.closest('.heart-btn')) {
-            const btn = e.target.closest('.heart-btn');
-            const card = btn.closest('.art-card');
-            const id = parseInt(card.dataset.id);
-            const piece = artPieces.find(p => p.id === id);
-            
-            if (piece) {
-                const index = userLikes.indexOf(id);
-                if (index === -1) {
-                    userLikes.push(id);
-                    piece.likes++;
-                    showNotification('Đã thêm vào yêu thích!', 'success');
-                } else {
-                    userLikes.splice(index, 1);
-                    piece.likes--;
-                    showNotification('Đã xóa khỏi yêu thích', 'info');
-                }
-                saveData();
-                renderMainFeed();
-            }
+    // Login Submission
+    document.getElementById('login-submit').addEventListener('click', () => {
+        const email = document.getElementById('login-email').value;
+        if (!email) return;
+        
+        // Simulating login: if they registered before, keep it, otherwise generic
+        if(!currentUser) {
+            currentUser = { name: "Thành viên", email, avatar: "T" };
         }
+        isLoggedIn = true;
+        saveData();
+        updateAuthUI();
+        closeAuthModal();
+        showNotification('Đăng nhập thành công!', 'success');
+        switchView('dashboard');
+    });
 
-        if (e.target.closest('.btn-outline') && !e.target.closest('.event-card')) {
-            showNotification('Yêu cầu đã được gửi!', 'success');
-        }
+    // Logout
+    document.getElementById('logout-btn').addEventListener('click', () => {
+        isLoggedIn = false;
+        currentUser = null;
+        saveData();
+        updateAuthUI();
+        switchView('discover');
+        showNotification('Hẹn gặp lại bạn sớm!', 'info');
     });
 }
+
+function openAuthModal(mode = 'register') {
+    const modal = document.getElementById('auth-modal');
+    modal.classList.add('active');
+    toggleAuthForm(mode);
+}
+
+function closeAuthModal() {
+    document.getElementById('auth-modal').classList.remove('active');
+}
+
+function toggleAuthForm(mode) {
+    document.getElementById('register-form').style.display = mode === 'register' ? 'block' : 'none';
+    document.getElementById('login-form').style.display = mode === 'login' ? 'block' : 'none';
+}
+
+function updateAuthUI() {
+    const navAvatar = document.getElementById('nav-avatar');
+    const authActions = document.getElementById('auth-actions');
+    
+    if (isLoggedIn && currentUser) {
+        navAvatar.textContent = currentUser.avatar;
+        authActions.innerHTML = `<span class="user-greeting">Chào, ${currentUser.name.split(' ')[0]}</span>`;
+    } else {
+        navAvatar.textContent = '?';
+        authActions.innerHTML = `<button class="btn-text" id="login-trigger">Đăng nhập</button>`;
+        document.getElementById('login-trigger').addEventListener('click', () => openAuthModal('login'));
+    }
+}
+
+// --- Dashboard Logic ---
+
+function renderDashboard() {
+    if (!isLoggedIn || !currentUser) return;
+    
+    document.getElementById('db-user-name').textContent = currentUser.name;
+    document.getElementById('db-user-email').textContent = currentUser.email;
+    document.getElementById('db-user-avatar').textContent = currentUser.avatar;
+    
+    document.getElementById('db-like-count').textContent = userLikes.length;
+    document.getElementById('db-event-count').textContent = Math.floor(Math.random() * 5); // Placeholder stat
+}
+
+// --- Search & Filters ---
 
 function setupSearchAndFilters() {
     const searchInput = document.querySelector('.search-container input');
@@ -191,6 +266,8 @@ function setupSearchAndFilters() {
         });
     });
 }
+
+// --- Notification System ---
 
 function showNotification(message, type = 'success') {
     const container = document.getElementById('toast-container');
@@ -243,25 +320,6 @@ function renderDiscovery() {
             storiesContainer.appendChild(card);
         });
     }
-
-    const highlightContainer = document.getElementById('highlights-container');
-    if (highlightContainer) {
-        highlightContainer.innerHTML = '';
-        artistHighlights.forEach(artist => {
-            const card = document.createElement('div');
-            card.className = 'highlight-card';
-            card.innerHTML = `
-                <img src="${artist.image}" class="highlight-img" alt="${artist.name}">
-                <div class="highlight-info">
-                    <h3>${artist.name}</h3>
-                    <p>${artist.bio}</p>
-                    <span class="followers-count"><i data-lucide="users"></i> ${artist.followers} người theo dõi</span>
-                </div>
-            `;
-            highlightContainer.appendChild(card);
-        });
-    }
-
     renderMainFeed();
 }
 
@@ -277,7 +335,7 @@ function renderMainFeed() {
     });
 
     if (filtered.length === 0) {
-        grid.innerHTML = `<div class="empty-state" style="grid-column: 1/-1; text-align: center; padding: 4rem; color: var(--text-gray);"><i data-lucide="search-x" style="width: 48px; height: 48px; margin-bottom: 1rem;"></i><p>Không tìm thấy tác phẩm...</p></div>`;
+        grid.innerHTML = `<div class="empty-state" style="grid-column: 1/-1; text-align: center; padding: 4rem; color: var(--text-gray);"><i data-lucide="search-x" style="width: 48px; height: 48px; margin-bottom: 1rem;"></i><p>Không tìm thấy sản phẩm...</p></div>`;
         if (window.lucide) window.lucide.createIcons();
         return;
     }
@@ -290,6 +348,9 @@ function renderMainFeed() {
         card.innerHTML = `
             <div class="art-image-wrapper">
                 <img src="${piece.image}" class="art-image" style="height: ${heights[index % heights.length]}; object-fit: cover;">
+                <div class="art-overlay">
+                    <button class="btn-buy">Mua ngay</button>
+                </div>
             </div>
             <div class="art-info">
                 <div class="artist-profile">
@@ -301,12 +362,30 @@ function renderMainFeed() {
                         <i data-lucide="heart" ${isLiked ? 'fill="currentColor"' : ''}></i>
                         <span class="interaction-count">${piece.likes}</span>
                     </button>
-                    <span class="interaction-count">${piece.comments} bình luận</span>
                 </div>
             </div>
         `;
         grid.appendChild(card);
     });
+
+    // Add delegated listener for heart/buy
+    grid.querySelectorAll('.heart-btn').forEach(btn => {
+        btn.onclick = (e) => {
+            const id = parseInt(btn.closest('.art-card').dataset.id);
+            const piece = artPieces.find(p => p.id === id);
+            const index = userLikes.indexOf(id);
+            if (index === -1) {
+                userLikes.push(id);
+                piece.likes++;
+            } else {
+                userLikes.splice(index, 1);
+                piece.likes--;
+            }
+            saveData();
+            renderMainFeed();
+        };
+    });
+
     if (window.lucide) window.lucide.createIcons();
 }
 
@@ -332,7 +411,7 @@ function renderEvents() {
                         <div class="stat-item"><i data-lucide="users"></i> ${project.artists}</div>
                         <div class="stat-item" style="color: #fffbd5;">${project.raised}</div>
                     </div>
-                    <button class="btn-join ${project.joined ? 'active' : ''}">${project.joined ? 'Đã tham gia' : 'Tham gia'} <i data-lucide="arrow-right"></i></button>
+                    <button class="btn-join ${project.joined ? 'active' : ''}" onclick="toggleJoin(${project.id})">${project.joined ? 'Đã tham gia' : 'Tham gia'} <i data-lucide="arrow-right"></i></button>
                 </div>
             `;
             impactContainer.appendChild(card);
@@ -359,6 +438,16 @@ function renderEvents() {
         });
     }
     if (window.lucide) window.lucide.createIcons();
+}
+
+function toggleJoin(id) {
+    const project = impactProjects.find(p => p.id === id);
+    if (project) {
+        project.joined = !project.joined;
+        saveData();
+        renderEvents();
+        showNotification(project.joined ? 'Bạn đã tham gia dự án!' : 'Đã rời khỏi dự án', 'success');
+    }
 }
 
 function renderConsignment() {

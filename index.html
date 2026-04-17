@@ -35,8 +35,8 @@
                     <span>Không gian cộng tác</span>
                 </a>
                 <div class="nav-divider"></div>
-                <a href="#" class="nav-item profile-link">
-                    <div class="mini-avatar">JD</div>
+                <a href="#" class="nav-item profile-link" data-view="dashboard">
+                    <div class="mini-avatar" id="nav-avatar">?</div>
                     <span>Cá nhân</span>
                 </a>
             </nav>
@@ -55,9 +55,9 @@
                     <i data-lucide="search"></i>
                     <input type="text" placeholder="Tìm kiếm nghệ sĩ, cảm hứng, sự kiện">
                 </div>
-                <div class="top-actions">
-                    <button class="btn-text">Đăng nhập</button>
-                    <button class="btn-gradient">Tham gia ngay</button>
+                <div class="top-actions" id="auth-actions">
+                    <button class="btn-text" id="login-trigger">Đăng nhập</button>
+                    <!-- Tham gia ngay removed as requested -->
                 </div>
             </header>
 
@@ -68,47 +68,35 @@
                 <section id="view-discover" class="view active">
                     <div class="hero-intro" id="hero-section">
                         <h1>localart.vn</h1>
-                        <p>Nền tảng số hàng đầu kết nối nghệ sĩ nội địa và những tâm hồn yêu nghệ thuật thế hệ mới.</p>
+                        <p>Nền tảng thương mại nghệ thuật hàng đầu kết nối nghệ sĩ nội địa và những tâm hồn yêu sáng tạo.</p>
                     </div>
 
-                    <!-- New Component: Artist Stories -->
+                    <!-- Component: Artist Stories (Kept from previous version) -->
                     <div class="content-section">
                         <div class="section-badge"><i data-lucide="book-open"></i> Câu chuyện nghệ sĩ</div>
                         <div class="section-center-header">
-                            <h2>Đằng sau mỗi <span>tác phẩm</span> là một câu chuyện</h2>
-                            <p>Khám phá hành trình sáng tạo, cảm hứng và ý nghĩa ẩn giấu qua lời kể của chính các nghệ sĩ.</p>
+                            <h2>Đằng sau mỗi <span>sản phẩm</span> là một câu chuyện</h2>
+                            <p>Khám phá hành trình sáng tạo và ý nghĩa ẩn giấu qua lời kể của chính các nghệ sĩ.</p>
                         </div>
-                        <div class="stories-grid" id="stories-container">
-                            <!-- Stories injected by script.js -->
-                        </div>
+                        <div class="stories-grid" id="stories-container"></div>
                         <div class="section-footer">
                             <a href="#" class="btn-link">Xem tất cả bài viết <i data-lucide="arrow-right"></i></a>
                         </div>
                     </div>
 
-                    <div class="content-section">
+                    <!-- Marketplace Section -->
+                    <div class="content-section marketplace-section">
                         <div class="section-header">
-                            <h2>Artist Highlights</h2>
-                            <a href="#" class="view-all">Xem tất cả</a>
-                        </div>
-                        <div class="highlights-slider" id="highlights-container">
-                            <!-- Highlights injected by script.js -->
-                        </div>
-                    </div>
-
-                    <div class="content-section">
-                        <div class="section-header">
-                            <h2>Khám phá Tác phẩm</h2>
+                            <h2>Marketplace</h2>
                             <div class="feed-filters">
                                 <button class="filter-chip active">Tất cả</button>
-                                <button class="filter-chip">Hội họa</button>
-                                <button class="filter-chip">Thủ công</button>
-                                <button class="filter-chip">Kỹ thuật số</button>
+                                <button class="filter-chip">Tranh Digital</button>
+                                <button class="filter-chip">Móc khóa & Phụ kiện</button>
+                                <button class="filter-chip">Đồ gia dụng vẽ tay</button>
+                                <button class="filter-chip">Thủ công mỹ nghệ</button>
                             </div>
                         </div>
-                        <div id="masonry-grid" class="masonry">
-                            <!-- Cards injected by script.js -->
-                        </div>
+                        <div id="masonry-grid" class="masonry"></div>
                     </div>
                 </section>
 
@@ -168,8 +156,48 @@
                             <h3>Bảng tin Dự án Mở (Open Project Briefs)</h3>
                             <button class="btn-outline">+ Đăng yêu cầu mới</button>
                         </div>
-                        <div class="briefs-grid" id="briefs-container">
-                            <!-- Briefs injected by script.js -->
+                        <div class="briefs-grid" id="briefs-container"></div>
+                    </div>
+                </section>
+
+                <!-- 5. User Dashboard View (NEW) -->
+                <section id="view-dashboard" class="view">
+                    <div class="dashboard-wrapper">
+                        <div class="db-profile-header">
+                            <div class="db-profile-info">
+                                <div class="db-avatar large" id="db-user-avatar">?</div>
+                                <div>
+                                    <h1 id="db-user-name">Người dùng</h1>
+                                    <p id="db-user-email">guest@localart.vn</p>
+                                </div>
+                            </div>
+                            <button class="btn-outline" id="logout-btn">Đăng xuất</button>
+                        </div>
+                        
+                        <div class="db-stats-grid">
+                            <div class="stat-card">
+                                <span class="stat-label">Đơn hàng của tôi</span>
+                                <span class="stat-value">0</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-label">Sự kiện đã quan tâm</span>
+                                <span class="stat-value" id="db-event-count">0</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-label">Lượt yêu thích</span>
+                                <span class="stat-value" id="db-like-count">0</span>
+                            </div>
+                        </div>
+
+                        <div class="db-content-tabs">
+                            <div class="db-tabs">
+                                <button class="db-tab-btn active">Tổng quan</button>
+                                <button class="db-tab-btn">Cài đặt</button>
+                            </div>
+                            <div class="db-tab-panel" id="db-overview">
+                                <h3>Thông báo mới nhất</h3>
+                                <div class="empty-state-mini">Chào mừng bạn trở lại! Hiện chưa có thông báo mới.</div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -180,6 +208,50 @@
 
     <!-- UX Feedback Toast -->
     <div id="toast-container"></div>
+
+    <!-- Auth Modal Overlay -->
+    <div id="auth-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div id="auth-form-container">
+                <!-- Registration Form (Default for new users in this simulation) -->
+                <div id="register-form" class="auth-form">
+                    <h2>Đăng ký thành viên</h2>
+                    <p>Tham gia cộng đồng localart.vn ngay hôm nay</p>
+                    <div class="form-group">
+                        <label>Họ và tên</label>
+                        <input type="text" id="reg-name" placeholder="Ví dụ: Linh Nguyen">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="reg-email" placeholder="example@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Mật khẩu</label>
+                        <input type="password" id="reg-password" placeholder="••••••••">
+                    </div>
+                    <button class="btn-gradient" id="reg-submit">Tạo tài khoản</button>
+                    <p class="auth-switch">Đã có tài khoản? <a href="#" id="show-login">Đăng nhập</a></p>
+                </div>
+
+                <!-- Login Form -->
+                <div id="login-form" class="auth-form" style="display: none;">
+                    <h2>Chào mừng trở lại</h2>
+                    <p>Đăng nhập để tiếp tục hành trình nghệ thuật</p>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="login-email" placeholder="example@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Mật khẩu</label>
+                        <input type="password" id="login-password" placeholder="••••••••">
+                    </div>
+                    <button class="btn-gradient" id="login-submit">Đăng nhập</button>
+                    <p class="auth-switch">Chưa có tài khoản? <a href="#" id="show-register">Đăng ký</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
