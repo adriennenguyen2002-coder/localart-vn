@@ -320,6 +320,70 @@ body {
     line-height: 1.1;
 }
 
+/* Project Action Buttons */
+.project-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.btn-participate {
+    background: #f0f0f0;
+    color: var(--text-main);
+}
+
+.btn-donate {
+    background: var(--text-main);
+    color: white;
+}
+
+/* Modal Enhancements */
+.modal-content.wide {
+    max-width: 800px;
+    padding: 3rem;
+    border-radius: 32px;
+}
+
+.modal-content.wide h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+}
+
+.project-modal-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.payment-methods {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.payment-method {
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.payment-method:hover {
+    border-color: var(--accent-coral);
+    background: #fffcfb;
+}
+
+.payment-method i { font-size: 1.5rem; }
+
 .hero-intro p {
     font-size: 1.25rem;
     color: var(--text-gray);
@@ -338,10 +402,25 @@ body {
 .vn-map-svg {
     width: 300px;
     height: 700px;
-    background: #f0f0f0;
+    background: #fdfdfd;
     border-radius: 40px;
     position: relative;
     overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.02);
+}
+
+.vn-map-svg::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: 45%;
+    width: 25%;
+    height: 90%;
+    background: rgba(240, 108, 78, 0.05); /* Stylized vertical path of VN */
+    filter: blur(20px);
+    border-radius: 50% / 10%;
+    transform: rotate(-5deg);
 }
 
 .map-marker {

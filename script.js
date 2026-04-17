@@ -33,9 +33,9 @@ const INITIAL_IMPACT_PROJECTS = [
 ];
 
 const artistStories = [
-    { id: 1, title: "Vẽ ký ức tuổi thơ qua những con hẻm Sài Gòn", excerpt: "Mỗi bức tranh là một mảnh ghép của tuổi thơ tôi...", author: "Minh Tú", tag: "Câu chuyện", readTime: "5 phút đọc", image: "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?auto=format&fit=crop&q=80&w=600", avatar: "https://i.pravatar.cc/150?u=minhtu" },
-    { id: 2, title: "Từ bỏ công việc văn phòng để theo đuổi nghệ thuật gốm", excerpt: "Tôi đã dành 5 năm ngồi trong văn phòng máy lạnh...", author: "Hải Đăng", tag: "Trải nghiệm", readTime: "7 phút đọc", image: "https://images.unsplash.com/photo-1565191999001-551c187427bb?auto=format&fit=crop&q=80&w=600", avatar: "https://i.pravatar.cc/150?u=haidang" },
-    { id: 3, title: "Ý nghĩa đằng sau bộ tranh 'Mẹ Việt Nam'", excerpt: "Bộ tranh gồm 12 bức, mỗi bức là chân dung người mẹ Việt...", author: "Lan Phương", tag: "Ý nghĩa tác phẩm", readTime: "6 phút đọc", image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=600", avatar: "https://i.pravatar.cc/150?u=lanphuong" }
+    { id: 1, title: "Vẽ ký ức tuổi thơ qua những con hẻm Sài Gòn", excerpt: "Mỗi bức tranh là một mảnh ghép của tuổi thơ tôi...", author: "Minh Tú", tag: "Câu chuyện", readTime: "5 phút đọc", image: "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?auto=format&fit=crop&q=80&w=600", avatar: "MT" },
+    { id: 2, title: "Từ bỏ công việc văn phòng để theo đuổi nghệ thuật gốm", excerpt: "Tôi đã dành 5 năm ngồi trong văn phòng máy lạnh...", author: "Hải Đăng", tag: "Trải nghiệm", readTime: "7 phút đọc", image: "https://images.unsplash.com/photo-1565191999001-551c187427bb?auto=format&fit=crop&q=80&w=600", avatar: "HD" },
+    { id: 3, title: "Ý nghĩa đằng sau bộ tranh 'Mẹ Việt Nam'", excerpt: "Bộ tranh gồm 12 bức, mỗi bức là chân dung người mẹ Việt...", author: "Lan Phương", tag: "Ý nghĩa tác phẩm", readTime: "6 phút đọc", image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=600", avatar: "LP" }
 ];
 
 const consignmentSpots = [
@@ -365,79 +365,200 @@ function renderDiscovery() {
 }
 
 function renderMainFeed() {
-    const grid = document.getElementById('masonry-grid');
-    if (!grid) return;
-    grid.innerHTML = '';
-    const heights = ['280px', '400px', '320px', '450px', '300px', '380px'];
-    const filtered = artPieces.filter(piece => {
-        const matchesCategory = currentCategory === "Tất cả" || piece.category === currentCategory;
-        const matchesSearch = piece.title.toLowerCase().includes(searchQuery) || piece.artist.toLowerCase().includes(searchQuery);
-        return matchesCategory && matchesSearch;
-    });
+    const container = document.getElementById('masonry-grid');
+    if (!container) return;
+    
+    const filtered = artPieces.filter(p => 
+        (currentCategory === "Tất cả" || p.category === currentCategory) &&
+        (p.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+         p.artist.toLowerCase().includes(searchQuery.toLowerCase()))
+    );
 
-    if (filtered.length === 0) {
-        grid.innerHTML = `<div class="empty-state" style="grid-column: 1/-1; text-align: center; padding: 4rem; color: var(--text-gray);"><i data-lucide="search-x" style="width: 48px; height: 48px; margin-bottom: 1rem;"></i><p>Không tìm thấy sản phẩm...</p></div>`;
-        if (window.lucide) window.lucide.createIcons();
-        return;
-    }
-
-    filtered.forEach((piece, index) => {
+    container.innerHTML = '';
+    filtered.forEach(p => {
         const card = document.createElement('div');
         card.className = 'art-card';
-        card.dataset.id = piece.id;
         card.innerHTML = `
-            <div class="art-image-wrapper">
-                <img src="${piece.image}" class="art-image" style="height: ${heights[index % heights.length]}; object-fit: cover;">
-                <div class="art-overlay"><button class="btn-buy">Mua ngay</button></div>
-            </div>
+            <img src="${p.image}" class="art-img" alt="${p.title}" onerror="this.src='https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?auto=format&fit=crop&q=80&w=600'">
             <div class="art-info">
-                <div class="artist-profile"><div class="artist-avatar">${piece.avatar}</div><span class="artist-name">${piece.artist}</span></div>
-                <div class="interactions">
-                    <!-- Favorite feature removed from Marketplace as requested -->
-                    <span class="interaction-count">${piece.likes} lượt mua</span>
+                <div class="artist-profile">
+                    <div class="artist-avatar">${p.avatar[0]}</div>
+                    <span class="artist-name">${p.artist}</span>
                 </div>
-            </div>`;
-        grid.appendChild(card);
+                <h3>${p.title}</h3>
+                <div class="art-meta">
+                    <span class="tag">${p.category}</span>
+                </div>
+                <div class="art-actions" style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                    <button class="btn-gradient" style="flex: 1" onclick="openShopCheckout(${p.id})">Mua ngay</button>
+                    <button class="btn-icon" onclick="toggleLike(${p.id})">
+                        <i data-lucide="heart" class="${userLikes.includes(p.id) ? 'active' : ''}"></i>
+                    </button>
+                </div>
+            </div>
+        `;
+        container.appendChild(card);
     });
     if (window.lucide) window.lucide.createIcons();
 }
 
-function renderEvents() {
-    const impactContainer = document.getElementById('impact-container');
-    if (impactContainer) {
-        impactContainer.innerHTML = '';
-        impactProjects.forEach(project => {
-            const card = document.createElement('div');
-            card.className = 'impact-card';
-            card.dataset.id = project.id;
-            card.innerHTML = `
-                <div class="impact-header"><div class="impact-icon" style="color: ${project.color};"><i data-lucide="${project.icon}"></i></div><span class="impact-category" style="background: ${project.color}20; color: ${project.color};">${project.category}</span></div>
-                <div class="impact-content"><h3>${project.title}</h3><p>${project.description}</p></div>
-                <div class="impact-footer">
-                    <div class="stats-group"><div class="stat-item"><i data-lucide="users"></i> ${project.artists}</div><div class="stat-item" style="color: #fffbd5;">${project.raised}</div></div>
-                    <button class="btn-join ${project.joined ? 'active' : ''}" onclick="toggleJoin(${project.id})">${project.joined ? 'Đã tham gia' : 'Tham gia'} <i data-lucide="arrow-right"></i></button>
-                </div>`;
-            impactContainer.appendChild(card);
-        });
-    }
+function openShopCheckout(artId) {
+    const item = artPieces.find(a => a.id === artId);
+    const modal = document.getElementById('checkout-modal');
+    const body = document.getElementById('checkout-modal-body');
+    
+    body.innerHTML = `
+        <div class="project-modal-info">
+            <div>
+                <img src="${item.image}" style="width: 100%; border-radius: 20px; margin-bottom: 2rem;">
+                <h2 style="margin-bottom: 0.5rem;">${item.title}</h2>
+                <p style="color: #666; font-size: 1.1rem;">Nghệ sĩ: <b>${item.artist}</b></p>
+            </div>
+            <div style="background: #f9f9f9; padding: 2.5rem; border-radius: 32px;">
+                <h3>TRANG THANH TOÁN</h3>
+                <p style="font-size: 0.9rem; color: #777; margin: 1rem 0 2rem;">Bạn đang thực hiện thanh toán trực tiếp cho cửa hàng của <b>${item.artist}</b>. Đây là nơi trưng bày các sản phẩm độc bản khác.</p>
+                
+                <div style="background: white; padding: 1.5rem; border-radius: 16px; margin-bottom: 2rem; border: 1px solid #eee;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.8rem;">
+                        <span>Đơn giá:</span>
+                        <b>850.000 đ</b>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-weight: 700; border-top: 1px solid #eee; padding-top: 0.8rem;">
+                        <span>Tổng thanh toán:</span>
+                        <span style="color: var(--accent-coral)">850.000 đ</span>
+                    </div>
+                </div>
 
-    const container = document.getElementById('events-container');
-    if (container) {
-        container.innerHTML = '';
-        events.forEach(event => {
-            const card = document.createElement('div');
-            card.className = 'event-card';
-            card.innerHTML = `
-                <img src="${event.image}" class="event-img" alt="${event.title}">
-                <div class="event-content">
-                    <span class="event-tag">${event.tag}</span><h3>${event.title}</h3>
-                    <p><i data-lucide="clock"></i> ${event.date}</p><p><i data-lucide="map-pin"></i> ${event.location}</p>
-                    <button class="btn-outline" style="margin-top: 1.5rem; width: 100%;">Quan tâm</button>
-                </div>`;
-            container.appendChild(card);
-        });
-    }
+                <div class="payment-methods" style="grid-template-columns: 1fr; gap: 0.8rem;">
+                    <div class="payment-method" style="flex-direction: row; padding: 1rem;" onclick="simulatePaymentAndRedirect()">
+                        <i data-lucide="wallet"></i>
+                        <span>Ví MoMo / VNPay</span>
+                    </div>
+                    <div class="payment-method" style="flex-direction: row; padding: 1rem;" onclick="simulatePaymentAndRedirect()">
+                        <i data-lucide="building"></i>
+                        <span>Chuyển khoản Ngân hàng</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    modal.classList.add('active');
     if (window.lucide) window.lucide.createIcons();
+}
+
+function simulatePaymentAndRedirect() {
+    showToast("Đang chuyển hướng tới cổng thanh toán của Shop...");
+    setTimeout(() => {
+        showToast("Thanh toán thành công! Đơn hàng đã được ghi nhận.");
+        document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
+    }, 2000);
+}
+
+function renderEvents() {
+    const container = document.getElementById('impact-container');
+    if (!container) return;
+    container.innerHTML = '';
+    impactProjects.forEach(proj => {
+        const card = document.createElement('div');
+        card.className = 'impact-card';
+        card.innerHTML = `
+            <div class="impact-image" style="background: ${proj.color}">
+                <i data-lucide="${proj.icon}"></i>
+                <span class="impact-tag">${proj.category}</span>
+            </div>
+            <div class="impact-info">
+                <h3>${proj.title}</h3>
+                <p>${proj.description}</p>
+                <div class="impact-stats">
+                    <div class="stat"><span>${proj.artists}</span> nghệ sĩ</div>
+                    <div class="stat"><span>${proj.raised}</span> gây quỹ</div>
+                </div>
+                <div class="project-actions">
+                    <button class="btn-gradient btn-participate" onclick="openProjectAction('participate', ${proj.id})">Tham gia dự án</button>
+                    <button class="btn-gradient btn-donate" onclick="openProjectAction('donate', ${proj.id})">Gây quỹ</button>
+                </div>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+    if (window.lucide) window.lucide.createIcons();
+}
+
+function openProjectAction(type, projectId) {
+    const project = impactProjects.find(p => p.id === projectId);
+    const modal = document.getElementById('project-modal');
+    const body = document.getElementById('project-modal-body');
+    
+    if (type === 'participate') {
+        body.innerHTML = `
+            <h2>Tham gia: ${project.title}</h2>
+            <div class="project-modal-info">
+                <div>
+                    <p style="margin-bottom: 2rem; line-height: 1.6; color: #666;">Dự án này đang tìm kiếm các nghệ sĩ cộng tác trong lĩnh vực <b>${project.category}</b>. Bằng cách tham gia, bạn sẽ đóng góp tài năng của mình để tạo ra tác động tích cực cho cộng đồng.</p>
+                    <div class="benefit-list" style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div style="display: flex; gap: 1rem; align-items: center;"><i data-lucide="check-circle" style="color: #27ae60"></i> Quảng bá tên tuổi nghệ sĩ</div>
+                        <div style="display: flex; gap: 1rem; align-items: center;"><i data-lucide="check-circle" style="color: #27ae60"></i> Chứng nhận đóng góp xã hội</div>
+                    </div>
+                </div>
+                <div style="background: #f9f9f9; padding: 2rem; border-radius: 20px;">
+                    <h4 style="margin-bottom: 1.5rem;">Cổng đăng ký CTV</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 2rem;">Thông tin cá nhân của bạn sẽ được gửi tới điều phối viên dự án.</p>
+                    <button class="btn-gradient" style="width: 100%" onclick="submitParticipation()">Đăng ký làm CTV ngay</button>
+                </div>
+            </div>
+        `;
+    } else {
+        body.innerHTML = `
+            <h2>Gây quỹ: ${project.title}</h2>
+            <p style="margin-bottom: 3rem; color: #666;">Số tiền quyên góp sẽ được chuyển 100% đến mục tiêu dự án: <b>${project.description}</b></p>
+            
+            <div class="form-group">
+                <label>Nhập số tiền muốn đóng góp (VNĐ)</label>
+                <input type="number" placeholder="Ví dụ: 200.000" style="padding: 1.2rem; font-size: 1.2rem; width: 100%; border-radius: 12px; border: 1px solid #ddd;">
+            </div>
+
+            <div class="payment-methods">
+                <div class="payment-method" onclick="simulatePayment()">
+                    <i data-lucide="smartphone"></i>
+                    <span>Ví MoMo</span>
+                </div>
+                <div class="payment-method" onclick="simulatePayment()">
+                    <i data-lucide="qr-code"></i>
+                    <span>Quét mã VietQR</span>
+                </div>
+                <div class="payment-method" onclick="simulatePayment()">
+                    <i data-lucide="credit-card"></i>
+                    <span>Thẻ Visa/Master</span>
+                </div>
+            </div>
+        `;
+    }
+    
+    modal.classList.add('active');
+    if (window.lucide) window.lucide.createIcons();
+}
+
+function submitParticipation() {
+    const body = document.getElementById('project-modal-body');
+    body.innerHTML = `
+        <div style="text-align: center; padding: 3rem;">
+            <i data-lucide="clock" style="width: 64px; height: 64px; color: var(--accent-coral); margin-bottom: 2rem;"></i>
+            <h2>Yêu cầu đã được gửi</h2>
+            <p style="font-size: 1.1rem; color: #666;">Phía dự án đang xem xét request của bạn và sẽ phản hồi qua email sau.</p>
+            <button class="btn-outline modal-close-btn" style="margin-top: 2.5rem;">Đóng</button>
+        </div>
+    `;
+    if (window.lucide) window.lucide.createIcons();
+    setupModalClose();
+}
+
+function simulatePayment() {
+    showToast("Đang kết nối tới cổng thanh toán...");
+    setTimeout(() => {
+        showToast("Thanh toán thành công! Cảm ơn sự đóng góp của bạn.");
+        document.getElementById('project-modal').classList.remove('active');
+    }, 2000);
 }
 
 function toggleJoin(id) {
@@ -495,4 +616,21 @@ function renderCollaborate() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', initApp);
+function setupModalClose() {
+    document.querySelectorAll('.modal-overlay').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.remove('active');
+        });
+    });
+    document.querySelectorAll('.modal-close, .modal-close-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
+        });
+    });
+}
+
+// Ensure close events are bound
+document.addEventListener('DOMContentLoaded', () => {
+    initApp();
+    setupModalClose();
+});
