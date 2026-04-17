@@ -16,7 +16,7 @@ const INITIAL_ART_PIECES = [
     { id: 4, title: "Túi Tote Thêu Tay 'Phố Cổ'", artist: "Quốc Anh", image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800", likes: 156, comments: 24, avatar: "QA", category: "Thủ công mỹ nghệ" },
     { id: 5, title: "Bộ Postcard 'Sài Gòn 1990s'", artist: "Phương Nam", image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=800", likes: 312, comments: 56, avatar: "PN", category: "Móc khóa & Phụ kiện" },
     { id: 6, title: "Cyberpunk Hanoi - Limited Print", artist: "Đức Huy", image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800", likes: 420, comments: 89, avatar: "DH", category: "Tranh Digital" },
-    { id: 7, title: "Sổ tay Giấy Dó 'Họa Sắc'", artist: "Zó Project", image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800", likes: 215, comments: 34, avatar: "ZP", category: "Thủ công mỹ nghệ" },
+    { id: 7, title: "Sổ tay Giấy Dó 'Họa Sắc'", artist: "Zó Project", image: "https://images.unsplash.com/photo-1589149053231-4ed501d1d991?auto=format&fit=crop&q=80&w=800", likes: 215, comments: 34, avatar: "ZP", category: "Thủ công mỹ nghệ" },
     { id: 8, title: "Bình hoa Sơn Mài 'Đông Hồ'", artist: "Minh Anh", image: "https://images.unsplash.com/photo-1612115539052-e932aa199468?auto=format&fit=crop&q=80&w=800", likes: 178, comments: 21, avatar: "MA", category: "Thủ công mỹ nghệ" }
 ];
 
@@ -44,14 +44,30 @@ const consignmentSpots = [
 ];
 
 const events = [
-    { id: 1, title: "Hội chợ Nghệ thuật 'Lộc Xuân'", date: "20 Tháng 4, 2026", location: "Bảo tàng Mỹ thuật TP.HCM", tag: "Art Fair", image: "https://images.unsplash.com/photo-1531050171652-3d5444ca2899?auto=format&fit=crop&q=80&w=600" },
-    { id: 2, title: "Workshop Vẽ Màu Nước Indie", date: "25 Tháng 4, 2026", location: "Ohquao Concept Store", tag: "Workshop", image: "https://images.unsplash.com/photo-1460662136037-372996e386a7?auto=format&fit=crop&q=80&w=600" },
-    { id: 3, title: "Triển lãm 'Nét Việt'", date: "02 Tháng 5, 2026", location: "Hanoi Creative City", tag: "Exhibition", image: "https://images.unsplash.com/photo-1491243950741-9b35542bb9d7?auto=format&fit=crop&q=80&w=600" }
+    { id: 1, title: "Hội chợ Nghệ thuật 'Lộc Xuân'", date: "20 Tháng 4, 2026", location: "Bảo tàng Mỹ thuật TP.HCM", tag: "Art Fair", image: "https://images.unsplash.com/photo-1459749411177-042180ce673c?auto=format&fit=crop&q=80&w=800" },
+    { id: 2, title: "Workshop Vẽ Màu Nước Indie", date: "25 Tháng 4, 2026", location: "Ohquao Concept Store", tag: "Workshop", image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=800" },
+    { id: 3, title: "Triển lãm 'Nét Việt'", date: "02 Tháng 5, 2026", location: "Hanoi Creative City", tag: "Exhibition", image: "https://images.unsplash.com/photo-1491243950741-9b35542bb9d7?auto=format&fit=crop&q=80&w=800" },
+    { id: 4, title: "Art Community Meetup", date: "10 Tháng 5, 2026", location: "Toong Coworking Space", tag: "Networking", image: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=800" }
 ];
 
 const projectBriefs = [
-    { title: "Thiết kế bộ Postcard 'Ký ức Phố'", reward: "5.000.000 VNĐ", status: "Open", deadline: "10 ngày" },
-    { title: "Minh họa bìa sách 'Hồn Việt'", reward: "8.000.000 VNĐ", status: "Open", deadline: "15 ngày" }
+    { title: "Sáng tạo tranh tường (Mural) Hồ Tây", reward: "15.000.000 VNĐ", status: "Open", deadline: "12 ngày", image: "https://images.unsplash.com/photo-1525909002-1b05e0c869d8?auto=format&fit=crop&q=80&w=800" },
+    { title: "Thiết kế bộ Postcard 'Ký ức Phố'", reward: "5.000.000 VNĐ", status: "Open", deadline: "10 ngày", image: "https://images.unsplash.com/photo-1579762715118-a6f1d4b93475?auto=format&fit=crop&q=80&w=800" },
+    { title: "Minh họa bìa sách 'Hồn Việt'", reward: "8.000.000 VNĐ", status: "Open", deadline: "15 ngày", image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=800" },
+    { title: "Workshop Dệt vải Tự nhiên", reward: "20.000.000 VNĐ", status: "Open", deadline: "20 ngày", image: "https://images.unsplash.com/photo-1506806732259-39c2d4468673?auto=format&fit=crop&q=80&w=800" }
+];
+
+// CMS Mock Data
+const INITIAL_ORDERS = [
+    { id: "#LA-9021", user: "Nguyễn Văn A", product: "Ly Gốm 'Mùa Sen'", price: "350.000 đ", date: "15/04", status: "Delivered", class: "badge-delivered" },
+    { id: "#LA-9022", user: "Trần Thị B", product: "Cyberpunk Hanoi Print", price: "1.200.000 đ", date: "16/04", status: "Shipped", class: "badge-shipped" },
+    { id: "#LA-9023", user: "Lê Minh C", product: "Móc khóa Cung Đình", price: "85.000 đ", date: "17/04", status: "Processing", class: "badge-processing" }
+];
+
+const INITIAL_CUSTOMERS = [
+    { name: "Nguyễn Văn A", email: "vana@gmail.com", orders: 3, total: "1.050.000 đ", avatar: "NA" },
+    { name: "Trần Thị B", email: "ttb@outlook.com", orders: 1, total: "1.200.000 đ", avatar: "TB" },
+    { name: "Lê Minh C", email: "minhc@dev.vn", orders: 5, total: "450.000 đ", avatar: "MC" }
 ];
 
 // App State
@@ -63,12 +79,14 @@ let currentUser = JSON.parse(localStorage.getItem(STORAGE_KEYS.USER_DATA)) || nu
 
 let currentCategory = "Tất cả";
 let searchQuery = "";
+let currentCmsTab = "orders";
 
 // --- Core Initialization ---
 
 function initApp() {
     setupNavigation();
     setupAuth();
+    setupDashboardTabs();
     renderAllViews();
     setupSearchAndFilters();
     updateAuthUI();
@@ -90,19 +108,14 @@ function saveData() {
 
 function setupNavigation() {
     const navItems = document.querySelectorAll('.nav-item[data-view]');
-    const views = document.querySelectorAll('.view');
-
     navItems.forEach(item => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
             const targetView = item.getAttribute('data-view');
-            
-            // If dashboard, check auth
             if (targetView === 'dashboard' && !isLoggedIn) {
                 openAuthModal('login');
                 return;
             }
-
             switchView(targetView);
         });
     });
@@ -137,6 +150,70 @@ function switchView(viewId) {
     }, 300);
 }
 
+// --- Dashboard Logic ---
+
+function setupDashboardTabs() {
+    const tabBtns = document.querySelectorAll('.db-tab-btn');
+    const panels = document.querySelectorAll('.db-tab-panel');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tabBtns.forEach(b => b.classList.remove('active'));
+            panels.forEach(p => {
+                p.classList.remove('active');
+                p.style.display = 'none';
+            });
+
+            btn.classList.add('active');
+            const target = btn.getAttribute('data-tab');
+            const panel = document.getElementById(`db-${target}`);
+            panel.classList.add('active');
+            panel.style.display = 'block';
+
+            if (target === 'seller') renderSellerCMS();
+        });
+    });
+
+    const cmsMiniTabs = document.querySelectorAll('.cms-tab-mini');
+    cmsMiniTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            cmsMiniTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            currentCmsTab = tab.getAttribute('data-cms');
+            renderSellerCMS();
+        });
+    });
+}
+
+function renderDashboard() {
+    if (!isLoggedIn || !currentUser) return;
+    document.getElementById('db-user-name').textContent = currentUser.name;
+    document.getElementById('db-user-email').textContent = currentUser.email;
+    document.getElementById('db-user-avatar').textContent = currentUser.avatar;
+    document.getElementById('db-like-count').textContent = userLikes.length;
+}
+
+function renderSellerCMS() {
+    const viewport = document.getElementById('cms-viewport');
+    viewport.innerHTML = '';
+
+    if (currentCmsTab === 'orders') {
+        let html = `<div class="cms-table-container"><table class="cms-table"><thead><tr><th>Mã Đơn</th><th>Khách Hàng</th><th>Sản Phẩm</th><th>Giá Trị</th><th>Ngày</th><th>Trạng Thái</th></tr></thead><tbody>`;
+        INITIAL_ORDERS.forEach(order => {
+            html += `<tr><td><b>${order.id}</b></td><td>${order.user}</td><td>${order.product}</td><td>${order.price}</td><td>${order.date}</td><td><span class="badge ${order.class}">${order.status}</span></td></tr>`;
+        });
+        html += `</tbody></table></div>`;
+        viewport.innerHTML = html;
+    } else {
+        let html = `<div class="cms-table-container"><table class="cms-table"><thead><tr><th>Khách Hàng</th><th>Email</th><th>Đơn Hàng</th><th>Tổng Chi</th></tr></thead><tbody>`;
+        INITIAL_CUSTOMERS.forEach(cust => {
+            html += `<tr><td><div class="customer-row"><div class="cust-avatar">${cust.avatar}</div><span>${cust.name}</span></div></td><td>${cust.email}</td><td>${cust.orders}</td><td><b>${cust.total}</b></td></tr>`;
+        });
+        html += `</tbody></table></div>`;
+        viewport.innerHTML = html;
+    }
+}
+
 // --- Auth Simulation ---
 
 function setupAuth() {
@@ -144,74 +221,46 @@ function setupAuth() {
     const closeBtn = document.querySelector('.modal-close');
     const loginTrigger = document.getElementById('login-trigger');
     
-    loginTrigger.addEventListener('click', () => openAuthModal('login'));
-    closeBtn.addEventListener('click', closeAuthModal);
+    if(loginTrigger) loginTrigger.addEventListener('click', () => openAuthModal('login'));
+    if(closeBtn) closeBtn.addEventListener('click', closeAuthModal);
     
-    // Switch between forms
-    document.getElementById('show-login').addEventListener('click', (e) => {
-        e.preventDefault();
-        toggleAuthForm('login');
-    });
-    document.getElementById('show-register').addEventListener('click', (e) => {
-        e.preventDefault();
-        toggleAuthForm('register');
-    });
+    document.getElementById('show-login').addEventListener('click', (e) => { e.preventDefault(); toggleAuthForm('login'); });
+    document.getElementById('show-register').addEventListener('click', (e) => { e.preventDefault(); toggleAuthForm('register'); });
 
-    // Registration Submission
     document.getElementById('reg-submit').addEventListener('click', () => {
         const name = document.getElementById('reg-name').value;
         const email = document.getElementById('reg-email').value;
-        if (!name || !email) {
-            showNotification('Vui lòng điền đầy đủ thông tin!', 'info');
-            return;
-        }
-        
+        if (!name || !email) { showNotification('Vui lòng điền đủ thông tin!', 'info'); return; }
         currentUser = { name, email, avatar: name.charAt(0).toUpperCase() };
         isLoggedIn = true;
-        saveData();
-        updateAuthUI();
-        closeAuthModal();
-        showNotification(`Chào mừng ${name} đến với localart.vn!`, 'success');
+        saveData(); updateAuthUI(); closeAuthModal();
+        showNotification(`Chào mừng ${name}!`, 'success');
         switchView('dashboard');
     });
 
-    // Login Submission
     document.getElementById('login-submit').addEventListener('click', () => {
         const email = document.getElementById('login-email').value;
         if (!email) return;
-        
-        // Simulating login: if they registered before, keep it, otherwise generic
-        if(!currentUser) {
-            currentUser = { name: "Thành viên", email, avatar: "T" };
-        }
+        if(!currentUser) currentUser = { name: "Thành viên", email, avatar: "T" };
         isLoggedIn = true;
-        saveData();
-        updateAuthUI();
-        closeAuthModal();
+        saveData(); updateAuthUI(); closeAuthModal();
         showNotification('Đăng nhập thành công!', 'success');
         switchView('dashboard');
     });
 
-    // Logout
     document.getElementById('logout-btn').addEventListener('click', () => {
-        isLoggedIn = false;
-        currentUser = null;
-        saveData();
-        updateAuthUI();
-        switchView('discover');
-        showNotification('Hẹn gặp lại bạn sớm!', 'info');
+        isLoggedIn = false; currentUser = null;
+        saveData(); updateAuthUI(); switchView('discover');
+        showNotification('Đã đăng xuất!', 'info');
     });
 }
 
 function openAuthModal(mode = 'register') {
-    const modal = document.getElementById('auth-modal');
-    modal.classList.add('active');
+    document.getElementById('auth-modal').classList.add('active');
     toggleAuthForm(mode);
 }
 
-function closeAuthModal() {
-    document.getElementById('auth-modal').classList.remove('active');
-}
+function closeAuthModal() { document.getElementById('auth-modal').classList.remove('active'); }
 
 function toggleAuthForm(mode) {
     document.getElementById('register-form').style.display = mode === 'register' ? 'block' : 'none';
@@ -221,7 +270,6 @@ function toggleAuthForm(mode) {
 function updateAuthUI() {
     const navAvatar = document.getElementById('nav-avatar');
     const authActions = document.getElementById('auth-actions');
-    
     if (isLoggedIn && currentUser) {
         navAvatar.textContent = currentUser.avatar;
         authActions.innerHTML = `<span class="user-greeting">Chào, ${currentUser.name.split(' ')[0]}</span>`;
@@ -230,19 +278,6 @@ function updateAuthUI() {
         authActions.innerHTML = `<button class="btn-text" id="login-trigger">Đăng nhập</button>`;
         document.getElementById('login-trigger').addEventListener('click', () => openAuthModal('login'));
     }
-}
-
-// --- Dashboard Logic ---
-
-function renderDashboard() {
-    if (!isLoggedIn || !currentUser) return;
-    
-    document.getElementById('db-user-name').textContent = currentUser.name;
-    document.getElementById('db-user-email').textContent = currentUser.email;
-    document.getElementById('db-user-avatar').textContent = currentUser.avatar;
-    
-    document.getElementById('db-like-count').textContent = userLikes.length;
-    document.getElementById('db-event-count').textContent = Math.floor(Math.random() * 5); // Placeholder stat
 }
 
 // --- Search & Filters ---
@@ -278,10 +313,7 @@ function showNotification(message, type = 'success') {
     toast.innerHTML = `<i data-lucide="${icon}"></i><span>${message}</span>`;
     container.appendChild(toast);
     if (window.lucide) window.lucide.createIcons();
-    setTimeout(() => {
-        toast.classList.add('fade-out');
-        setTimeout(() => toast.remove(), 500);
-    }, 3000);
+    setTimeout(() => { toast.classList.add('fade-out'); setTimeout(() => toast.remove(), 500); }, 3000);
 }
 
 // --- Renderers ---
@@ -301,22 +333,11 @@ function renderDiscovery() {
             const card = document.createElement('div');
             card.className = 'story-card';
             card.innerHTML = `
-                <div class="story-img-wrapper">
-                    <img src="${story.image}" class="story-img" alt="${story.title}">
-                    <span class="story-tag">${story.tag}</span>
-                </div>
+                <div class="story-img-wrapper"><img src="${story.image}" class="story-img" alt="${story.title}"><span class="story-tag">${story.tag}</span></div>
                 <div class="story-card-content">
-                    <h3>${story.title}</h3>
-                    <p>${story.excerpt}</p>
-                    <div class="story-author">
-                        <div class="author-info">
-                            <img src="${story.avatar}" class="author-avatar" alt="${story.author}">
-                            <span class="author-name">${story.author}</span>
-                        </div>
-                        <span class="read-time"><i data-lucide="clock"></i> ${story.readTime}</span>
-                    </div>
-                </div>
-            `;
+                    <h3>${story.title}</h3><p>${story.excerpt}</p>
+                    <div class="story-author"><div class="author-info"><img src="${story.avatar}" class="author-avatar" alt="${story.author}"><span class="author-name">${story.author}</span></div><span class="read-time"><i data-lucide="clock"></i> ${story.readTime}</span></div>
+                </div>`;
             storiesContainer.appendChild(card);
         });
     }
@@ -341,51 +362,23 @@ function renderMainFeed() {
     }
 
     filtered.forEach((piece, index) => {
-        const isLiked = userLikes.includes(piece.id);
         const card = document.createElement('div');
         card.className = 'art-card';
         card.dataset.id = piece.id;
         card.innerHTML = `
             <div class="art-image-wrapper">
                 <img src="${piece.image}" class="art-image" style="height: ${heights[index % heights.length]}; object-fit: cover;">
-                <div class="art-overlay">
-                    <button class="btn-buy">Mua ngay</button>
-                </div>
+                <div class="art-overlay"><button class="btn-buy">Mua ngay</button></div>
             </div>
             <div class="art-info">
-                <div class="artist-profile">
-                    <div class="artist-avatar">${piece.avatar}</div>
-                    <span class="artist-name">${piece.artist}</span>
-                </div>
+                <div class="artist-profile"><div class="artist-avatar">${piece.avatar}</div><span class="artist-name">${piece.artist}</span></div>
                 <div class="interactions">
-                    <button class="interaction-btn heart-btn ${isLiked ? 'active' : ''}">
-                        <i data-lucide="heart" ${isLiked ? 'fill="currentColor"' : ''}></i>
-                        <span class="interaction-count">${piece.likes}</span>
-                    </button>
+                    <!-- Favorite feature removed from Marketplace as requested -->
+                    <span class="interaction-count">${piece.likes} lượt mua</span>
                 </div>
-            </div>
-        `;
+            </div>`;
         grid.appendChild(card);
     });
-
-    // Add delegated listener for heart/buy
-    grid.querySelectorAll('.heart-btn').forEach(btn => {
-        btn.onclick = (e) => {
-            const id = parseInt(btn.closest('.art-card').dataset.id);
-            const piece = artPieces.find(p => p.id === id);
-            const index = userLikes.indexOf(id);
-            if (index === -1) {
-                userLikes.push(id);
-                piece.likes++;
-            } else {
-                userLikes.splice(index, 1);
-                piece.likes--;
-            }
-            saveData();
-            renderMainFeed();
-        };
-    });
-
     if (window.lucide) window.lucide.createIcons();
 }
 
@@ -398,22 +391,12 @@ function renderEvents() {
             card.className = 'impact-card';
             card.dataset.id = project.id;
             card.innerHTML = `
-                <div class="impact-header">
-                    <div class="impact-icon" style="color: ${project.color};"><i data-lucide="${project.icon}"></i></div>
-                    <span class="impact-category" style="background: ${project.color}20; color: ${project.color};">${project.category}</span>
-                </div>
-                <div class="impact-content">
-                    <h3>${project.title}</h3>
-                    <p>${project.description}</p>
-                </div>
+                <div class="impact-header"><div class="impact-icon" style="color: ${project.color};"><i data-lucide="${project.icon}"></i></div><span class="impact-category" style="background: ${project.color}20; color: ${project.color};">${project.category}</span></div>
+                <div class="impact-content"><h3>${project.title}</h3><p>${project.description}</p></div>
                 <div class="impact-footer">
-                    <div class="stats-group">
-                        <div class="stat-item"><i data-lucide="users"></i> ${project.artists}</div>
-                        <div class="stat-item" style="color: #fffbd5;">${project.raised}</div>
-                    </div>
+                    <div class="stats-group"><div class="stat-item"><i data-lucide="users"></i> ${project.artists}</div><div class="stat-item" style="color: #fffbd5;">${project.raised}</div></div>
                     <button class="btn-join ${project.joined ? 'active' : ''}" onclick="toggleJoin(${project.id})">${project.joined ? 'Đã tham gia' : 'Tham gia'} <i data-lucide="arrow-right"></i></button>
-                </div>
-            `;
+                </div>`;
             impactContainer.appendChild(card);
         });
     }
@@ -427,13 +410,10 @@ function renderEvents() {
             card.innerHTML = `
                 <img src="${event.image}" class="event-img" alt="${event.title}">
                 <div class="event-content">
-                    <span class="event-tag">${event.tag}</span>
-                    <h3>${event.title}</h3>
-                    <p><i data-lucide="clock"></i> ${event.date}</p>
-                    <p><i data-lucide="map-pin"></i> ${event.location}</p>
+                    <span class="event-tag">${event.tag}</span><h3>${event.title}</h3>
+                    <p><i data-lucide="clock"></i> ${event.date}</p><p><i data-lucide="map-pin"></i> ${event.location}</p>
                     <button class="btn-outline" style="margin-top: 1.5rem; width: 100%;">Quan tâm</button>
-                </div>
-            `;
+                </div>`;
             container.appendChild(card);
         });
     }
@@ -442,12 +422,7 @@ function renderEvents() {
 
 function toggleJoin(id) {
     const project = impactProjects.find(p => p.id === id);
-    if (project) {
-        project.joined = !project.joined;
-        saveData();
-        renderEvents();
-        showNotification(project.joined ? 'Bạn đã tham gia dự án!' : 'Đã rời khỏi dự án', 'success');
-    }
+    if (project) { project.joined = !project.joined; saveData(); renderEvents(); showNotification(project.joined ? 'Đã tham gia!' : 'Đã rời khỏi', 'success'); }
 }
 
 function renderConsignment() {
@@ -469,7 +444,13 @@ function renderCollaborate() {
     projectBriefs.forEach(brief => {
         const card = document.createElement('div');
         card.className = 'brief-card';
-        card.innerHTML = `<span class="brief-status status-open">Đang mở</span><h3>${brief.title}</h3><p>Ngân sách: <b>${brief.reward}</b></p><p>Thời hạn: ${brief.deadline}</p><button class="btn-gradient" style="width: 100%;">Ứng tuyển ngay</button>`;
+        card.innerHTML = `
+            <div class="brief-img-wrapper" style="height: 200px; overflow: hidden; border-radius: 16px; margin-bottom: 1.5rem;">
+                <img src="${brief.image}" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <span class="brief-status status-open">Đang mở</span>
+            <h3>${brief.title}</h3><p>Ngân sách: <b>${brief.reward}</b></p><p>Thời hạn: ${brief.deadline}</p>
+            <button class="btn-gradient" style="width: 100%; margin-top: 1rem;">Ứng tuyển ngay</button>`;
         container.appendChild(card);
     });
 }

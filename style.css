@@ -651,3 +651,126 @@ body {
 
 #nav-avatar { cursor: pointer; transition: transform 0.2s ease; }
 #nav-avatar:hover { transform: scale(1.1); }
+
+/* Marketplace Premium Filters */
+.marketplace-section .filter-chip {
+    background: #000 !important;
+    color: #fff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    padding: 0.6rem 1.4rem;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.marketplace-section .filter-chip:hover {
+    border-color: #fff !important;
+    background: #111 !important;
+}
+
+.marketplace-section .filter-chip.active {
+    background: #fff !important;
+    color: #000 !important;
+    border-color: #fff !important;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* CMS Dashboard Styles */
+.cms-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cms-actions {
+    display: flex;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.3rem;
+    border-radius: 12px;
+}
+
+.cms-tab-mini {
+    background: none;
+    border: none;
+    color: var(--text-gray);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.cms-tab-mini.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Professional Tables */
+.cms-table-container {
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+.cms-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    min-width: 600px;
+}
+
+.cms-table th {
+    text-align: left;
+    padding: 1.2rem 1rem;
+    color: var(--text-gray);
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.cms-table td {
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cms-table tr:hover td {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* Status Badges */
+.badge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-processing { background: rgba(243, 156, 18, 0.15); color: #f39c12; }
+.badge-shipped { background: rgba(52, 152, 219, 0.15); color: #3498db; }
+.badge-delivered { background: rgba(46, 204, 113, 0.15); color: #2ecc71; }
+
+.customer-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cust-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #000;
+}

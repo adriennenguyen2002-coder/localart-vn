@@ -71,7 +71,22 @@
                         <p>Nền tảng thương mại nghệ thuật hàng đầu kết nối nghệ sĩ nội địa và những tâm hồn yêu sáng tạo.</p>
                     </div>
 
-                    <!-- Component: Artist Stories (Kept from previous version) -->
+                    <!-- Marketplace Section (Priority #1) -->
+                    <div class="content-section marketplace-section">
+                        <div class="section-header">
+                            <h2>Marketplace</h2>
+                            <div class="feed-filters" id="marketplace-filters">
+                                <button class="filter-chip active">Tất cả</button>
+                                <button class="filter-chip">Tranh Digital</button>
+                                <button class="filter-chip">Móc khóa & Phụ kiện</button>
+                                <button class="filter-chip">Đồ gia dụng vẽ tay</button>
+                                <button class="filter-chip">Thủ công mỹ nghệ</button>
+                            </div>
+                        </div>
+                        <div id="masonry-grid" class="masonry"></div>
+                    </div>
+
+                    <!-- Component: Artist Stories -->
                     <div class="content-section">
                         <div class="section-badge"><i data-lucide="book-open"></i> Câu chuyện nghệ sĩ</div>
                         <div class="section-center-header">
@@ -82,21 +97,6 @@
                         <div class="section-footer">
                             <a href="#" class="btn-link">Xem tất cả bài viết <i data-lucide="arrow-right"></i></a>
                         </div>
-                    </div>
-
-                    <!-- Marketplace Section -->
-                    <div class="content-section marketplace-section">
-                        <div class="section-header">
-                            <h2>Marketplace</h2>
-                            <div class="feed-filters">
-                                <button class="filter-chip active">Tất cả</button>
-                                <button class="filter-chip">Tranh Digital</button>
-                                <button class="filter-chip">Móc khóa & Phụ kiện</button>
-                                <button class="filter-chip">Đồ gia dụng vẽ tay</button>
-                                <button class="filter-chip">Thủ công mỹ nghệ</button>
-                            </div>
-                        </div>
-                        <div id="masonry-grid" class="masonry"></div>
                     </div>
                 </section>
 
@@ -191,12 +191,29 @@
 
                         <div class="db-content-tabs">
                             <div class="db-tabs">
-                                <button class="db-tab-btn active">Tổng quan</button>
-                                <button class="db-tab-btn">Cài đặt</button>
+                                <button class="db-tab-btn active" data-tab="overview">Tổng quan</button>
+                                <button class="db-tab-btn" data-tab="seller">Quản lý (Seller)</button>
+                                <button class="db-tab-btn" data-tab="settings">Cài đặt</button>
                             </div>
-                            <div class="db-tab-panel" id="db-overview">
+                            <div class="db-tab-panel active" id="db-overview">
                                 <h3>Thông báo mới nhất</h3>
                                 <div class="empty-state-mini">Chào mừng bạn trở lại! Hiện chưa có thông báo mới.</div>
+                            </div>
+                            <div class="db-tab-panel" id="db-seller" style="display: none;">
+                                <div class="cms-header">
+                                    <h3>Quản trị Người bán</h3>
+                                    <div class="cms-actions">
+                                        <button class="cms-tab-mini active" data-cms="orders">Đơn hàng</button>
+                                        <button class="cms-tab-mini" data-cms="customers">Khách hàng</button>
+                                    </div>
+                                </div>
+                                <div id="cms-viewport">
+                                    <!-- CMS Tables injected by JS -->
+                                </div>
+                            </div>
+                            <div class="db-tab-panel" id="db-settings" style="display: none;">
+                                <h3>Cài đặt tài khoản</h3>
+                                <p>Cập nhật thông tin cá nhân và bảo mật của bạn.</p>
                             </div>
                         </div>
                     </div>
